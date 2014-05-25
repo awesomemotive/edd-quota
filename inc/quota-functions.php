@@ -88,17 +88,17 @@ add_action( 'after_setup_theme', 'quota_setup' );
  * Enqueue scripts and styles
  */
 function quota_scripts() {
-	wp_register_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,800italic,800,300,700' );
+	// main stylesheet
 	wp_enqueue_style( 'quota-style', get_stylesheet_uri() );
-	
-	wp_enqueue_script( 'quota-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20130601', true );
-	
-	if ( ! is_admin() ) {
-		wp_enqueue_style( 'google-fonts' );
-	}
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	// responsive navigation
+	wp_enqueue_script( 'quota-navigation', get_template_directory_uri() . '/inc/js/navigation.js', array(), '20130601', true );
+	// font awesome
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/inc/fonts/font-awesome/css/font-awesome.min.css' );
+	// add Google fonts only on front-end
+	if ( ! is_admin() )
+		wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,800italic,800,300,700' );
+	// reply to any comment functionality
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'quota_scripts' );
