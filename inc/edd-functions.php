@@ -17,12 +17,12 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
  */
 function quota_download_item_before_sidebar() { ?>		
 	<div class="product-info-wrapper">
-		<div class="product-sidebar-price">
+		<p class="product-sidebar-price">
 			<?php quota_item_price_template(); ?>
-		</div>	
-		<div class="product-download-buy-button">
+		</p>	
+		<p class="product-download-buy-button">
 			<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
-		</div>
+		</p>
 	</div>
 <?php }
 
