@@ -113,7 +113,8 @@ class QUOTA_EDD_SL_Theme_Updater {
 				'license' 		=> $this->license,
 				'name' 			=> $this->item_name,
 				'slug' 			=> $this->theme_slug,
-				'author'		=> $this->author
+				'author'		=> $this->author,
+				'url'           => home_url()
 			);
 
 			$response = wp_remote_post( $this->remote_api_url, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
@@ -158,16 +159,18 @@ class QUOTA_EDD_SL_Theme_Updater {
 * updater
 ***********************************************/
 
-$quota_license = trim( get_option( 'quota_license_key' ) );
-
-$edd_updater = new QUOTA_EDD_SL_Theme_Updater( array( 
-		'remote_api_url' 	=> QUOTA_EDD_SL_STORE_URL, 	// Our store URL that is running EDD
-		'version' 			=> QUOTA_VERSION, 			// The current theme version we are running
-		'license' 			=> $quota_license, 			// The license key (used get_option above to retrieve from DB)
-		'item_name' 		=> QUOTA_EDD_SL_THEME_NAME,	// The name of this theme
-		'author'			=> QUOTA_AUTHOR				// The author's name
-	)
-);
+if ( is_admin() ) {
+	$quota_license = trim( get_option( 'quota_license_key' ) );
+	
+	$edd_updater = new QUOTA_EDD_SL_Theme_Updater( array( 
+			'remote_api_url' 	=> QUOTA_EDD_SL_STORE_URL,
+			'version' 			=> QUOTA_VERSION,
+			'license' 			=> $quota_license,
+			'item_name' 		=> QUOTA_EDD_SL_THEME_NAME,
+			'author'			=> QUOTA_AUTHOR
+		)
+	);
+}
 
 
 
@@ -186,9 +189,10 @@ function quota_activate_license() {
 		$license = trim( get_option( 'quota_license_key' ) );
 				
 		$api_params = array( 
-			'edd_action' => 'activate_license', 
-			'license' => $license, 
-			'item_name' => urlencode( QUOTA_EDD_SL_THEME_NAME ) 
+			'edd_action'	=> 'activate_license', 
+			'license'		=> $license, 
+			'item_name'		=> urlencode( QUOTA_EDD_SL_THEME_NAME ),
+			'url'			=> home_url() 
 		);
 		
 		$response = wp_remote_get( add_query_arg( $api_params, QUOTA_EDD_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
@@ -230,7 +234,8 @@ function quota_deactivate_license() {
 		$api_params = array( 
 			'edd_action'=> 'deactivate_license', 
 			'license' 	=> $license, 
-			'item_name' => urlencode( QUOTA_EDD_SL_THEME_NAME ) // the name of our product in EDD
+			'item_name' => urlencode( QUOTA_EDD_SL_THEME_NAME ),
+			'url'       => home_url()
 		);
 		
 		// Call the custom API.
