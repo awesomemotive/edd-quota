@@ -66,6 +66,10 @@ if ( ! function_exists( 'quota_setup' ) ) :
 		
 		// hard crop store front and taxonomy product images for downloads
 		add_image_size( 'product-image', 307, 191, true );
+		/**
+		 * Add HTML support for various elements
+		 */
+		add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form', 'gallery' ) );
 	
 		/**
 		 * Quota uses wp_nav_menu() in one location.
