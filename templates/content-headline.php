@@ -47,7 +47,7 @@ elseif ( is_page_template( 'edd-store-front.php' ) ) :
 elseif ( is_single() ) :
 	echo $start_headline; ?>
 	
-			<h1 class="single-headline headline-text">Sample Headline Text for Single Posts</h1>
+			<h1 class="single-headline headline-text">Sample Headline Text for ALL Single Posts</h1>
 			
 	<?php echo $end_headline;
 	
