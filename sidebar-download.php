@@ -7,8 +7,6 @@
 <div class="sidebar">
 
 	<?php 
-		do_action( 'before_sidebar' );
-		
 		/**
 		 * located in the inc/edd-functions.php file, this function 
 		 * outputs information about the current download being viewed. To remove 
@@ -18,7 +16,8 @@
 		 * directly below.
 		 */
 		quota_download_item_before_sidebar();
-	
+
+		do_action( 'before_sidebar' );
 		dynamic_sidebar( 'sidebar-download' );
 	?>
 	
