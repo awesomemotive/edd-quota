@@ -146,7 +146,7 @@ add_filter( 'wp_title', 'quota_wp_title', 10, 2 );
  * Replace excerpt ellipses with new ellipses and link to full article
  */
 function quota_excerpt_more( $more ) {
-	return '...</p> <p><a class="more-link button" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'quota_read_more', __( 'Read More &rarr;', 'quota' ) ) . '</a></p>';
+	return '...</p> <p><a class="more-link button" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'quota_read_more', __( 'Read More', 'quota' ) ) . '<i class="fa fa-arrow-circle-right button-icon"></i></a></p>';
 }
 add_filter( 'excerpt_more', 'quota_excerpt_more' );
 
@@ -217,11 +217,11 @@ if ( ! function_exists( 'quota_content_nav' ) ) :
 		<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 	
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'quota' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( '<span class="meta-nav"><i class="fa fa-arrow-circle-left button-icon"></i></span> ' . __( 'Older posts', 'quota' ) ); ?></div>
 			<?php endif; ?>
 	
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'quota' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'quota' ) . ' <span class="meta-nav"><i class="fa fa-arrow-circle-right button-icon"></i></span>' ); ?></div>
 			<?php endif; ?>
 	
 		<?php endif; ?>

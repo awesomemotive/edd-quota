@@ -4,7 +4,7 @@
  */
 $store_page_setting = ( is_front_page() && is_page_template('edd-store-front.php') ? 'page' : 'paged' );
 $current_page = get_query_var( $store_page_setting );
-$per_page = apply_filters( 'store-quantity', 6 );
+$per_page = intval( get_theme_mod( 'quota_store_front_count', 9 ) );
 $offset = $current_page > 0 ? $per_page * ( $current_page-1 ) : 0;
 $product_args = array(
 	'post_type' 		=> 'download',
@@ -16,6 +16,12 @@ $products = new WP_Query( $product_args );
 
 <div class="store-container">
 
+	<?php if ( get_theme_mod( 'quota_store_archives_description' ) && ! is_post_type_archive() ) : ?>
+		<div class="store-description">
+			<?php echo wpautop( get_theme_mod( 'quota_store_archives_description' ) ); ?>
+		</div>
+	<?php endif; ?>
+
 	<?php if ( $products->have_posts() ) : ?>
 	
 		<?php $i = 1; ?>
@@ -26,7 +32,7 @@ $products = new WP_Query( $product_args );
 			
 				<div class="threecol product<?php if ( $i % 3 == 0 ) { echo ' last'; } ?>">
 					<a class="product-title" href="<?php the_permalink(); ?>">
-						<h2><?php the_title(); ?></h2>
+						<h4><?php the_title(); ?></h4>
 					</a>
 					
 					<div class="product-image">
@@ -35,19 +41,19 @@ $products = new WP_Query( $product_args );
 						</a>
 						
 						<?php if ( function_exists( 'edd_price' ) ) : ?>
-							<div class="product-price">
+							<p class="product-price">
 							
 								<?php quota_item_price_template(); ?>
 								
-							</div>
+							</p>
 						<?php endif; ?>
 						
 					</div>
 					
 					<?php if ( function_exists( 'edd_price' ) ) : ?>
-						<div class="product-buttons">
-							<a class="product-button" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'quota_product_info_button', __( 'View Details', 'quota' ) ); ?></a>
-						</div>
+						<p class="product-buttons">
+							<a class="product-button" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'quota_product_info_button', __( 'View Details', 'quota' ) ); ?><i class="fa fa-arrow-circle-right button-icon"></i></a>
+						</p>
 					<?php endif; ?>
 					
 				</div>

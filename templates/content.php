@@ -40,8 +40,8 @@
 		<?php 
 			// display either full posts or excerpts based on theme customizer options
 			if ( 'option2' == get_theme_mod( 'quota_post_content' ) ) :
-				the_content( __( 'Read More &rarr;', 'quota' ) );
-	
+				the_content( __( 'Read More', 'quota' ) . '<i class="fa fa-arrow-circle-right button-icon"></i>' );
+
 				wp_link_pages( array(
 					'before' => '<div class="page-links">' . __( 'Pages:', 'quota' ),
 					'after'  => '</div>',

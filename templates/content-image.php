@@ -50,10 +50,10 @@
 
 	<nav role="navigation" class="navigation-image">
 		<div class="nav-previous">
-			<?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', 'quota' ) ); ?>
+			<?php previous_image_link( false, '<span class="meta-nav"><i class="fa fa-arrow-circle-left button-icon"></i></span>' . __( 'Previous', 'quota' ) ); ?>
 		</div>
 		<div class="nav-next">
-			<?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', 'quota' ) ); ?>
+			<?php next_image_link( false, __( 'Next', 'quota' ) . '<span class="meta-nav"><i class="fa fa-arrow-circle-right button-icon"></i></span>' ); ?>
 		</div>
 	</nav>
 </article>
