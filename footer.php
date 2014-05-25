@@ -11,18 +11,16 @@
 <div class="footer-area full">
 	<div class="main">
 		<footer class="site-footer inner">
-			<span class="site-info">
-			
+			<span class="site-info">			
 				<?php
-					$credits = __( 'Built with WordPress & <a href="' . QUOTA_HOME . '">Quota for Easy Digital Downloads</a>', 'quota' );
-					// If copyright & credits are left empty or have not been set, display default info.
-					if ( '' == get_theme_mod( 'quota_credits_copyright' ) ) :
-						echo $credits;
+					$site_info = get_bloginfo( 'description' ) . ' - ' . get_bloginfo( 'name' ) . ' &copy; ' . date( 'Y' );					
+					// display custom footer text if it's set, otherwise show tagline, site title, copyright, and date
+					if ( '' != get_theme_mod( 'quota_credits_copyright' ) ) :
+						echo get_theme_mod( 'quota_credits_copyright' );
 					else :
-						echo get_theme_mod( 'quota_credits_copyright', $credits );
+						echo $site_info;
 					endif;
-				?>
-				
+				?>				
 			</span>
 		</footer>
 	</div>
