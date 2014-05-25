@@ -9,7 +9,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-feed' ); ?>>
 	<header class="entry-header">
 		<a class="entry-title" href="<?php the_permalink(); ?>" rel="bookmark">
-			<h1><?php the_title(); ?></h1>
+			<?php the_title( '<h1>', '</h1>' ); ?>
 		</a>
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">

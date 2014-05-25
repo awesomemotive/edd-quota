@@ -32,7 +32,7 @@ $products = new WP_Query( $product_args );
 			
 				<div class="threecol product<?php if ( $i % 3 == 0 ) { echo ' last'; } ?>">
 					<a class="product-title" href="<?php the_permalink(); ?>">
-						<h4><?php the_title(); ?></h4>
+						<?php the_title( '<h4>', '</h4>' ); ?>
 					</a>
 					
 					<div class="product-image">
