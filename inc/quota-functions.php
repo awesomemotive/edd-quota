@@ -64,8 +64,9 @@ if ( ! function_exists( 'quota_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 		
-		// hard crop store front and taxonomy product images for downloads
-		add_image_size( 'product-image', 307, 191, true );
+			// hard crop store front and taxonomy product images for downloads
+			add_image_size( 'product-image', 728, 453, true );
+		
 		/**
 		 * Add HTML support for various elements
 		 */
