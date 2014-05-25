@@ -26,11 +26,13 @@ if ( ( is_home() && is_front_page() ) || ( is_front_page() && ! is_home() ) ) :
 
 // Show headline area on the store front page	
 elseif ( is_page_template( 'edd-store-front.php' ) ) :
-	echo $start_headline; ?>
-	
-			<h1 class="store-description headline-text"><?php echo get_theme_mod( 'quota_store_front_headlines', __( 'Edit this headline using the <a href="' . admin_url('/customize.php') . '">Customizer</a>.', 'quota' ) ); ?></h1>
-			
-	<?php echo $end_headline;	
+	if ( get_theme_mod( 'quota_store_front_headlines' ) ) :
+		echo $start_headline; ?>
+		
+				<h1 class="store-description headline-text"><?php echo get_theme_mod( 'quota_store_front_headlines', sprintf( __( 'Edit this headline using the %s.', 'quota' ), '<a href="' . admin_url('/customize.php') . '">Customizer</a>' ) ); ?></h1>
+				
+		<?php echo $end_headline;
+	endif;
 	
 
 /** 
