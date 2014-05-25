@@ -11,7 +11,6 @@
 get_header(); ?>
 
 	<div class="content clear">
-
 		<?php 
 			// start the loop
 			while ( have_posts() ) : the_post();
@@ -29,7 +28,6 @@ get_header(); ?>
 
 			endwhile; // end the loop
 		?>
-
 	</div>
 
 <?php get_sidebar( 'download' ); ?>

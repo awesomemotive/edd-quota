@@ -11,16 +11,14 @@
 get_header(); ?>
 
 	<div class="image-content">
-
-		<?php 
+		<?php
 			// start the loop
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'templates/content', 'image' );			
+				get_template_part( 'templates/content', 'image' );
 
 			endwhile; // end the loop
 		?>
-
 	</div>
 
 <?php get_footer(); ?>

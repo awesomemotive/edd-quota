@@ -3,7 +3,7 @@
  * This template is the most generic of all content displaying templates.
  * If the content type is not specified, like a single post or page, this
  * template is used to structure the content.
- */ 
+ */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-feed' ); ?>>
@@ -13,18 +13,16 @@
 		</a>
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">
-			
-				<?php 
+				<?php
 					quota_posted_on();
-					
+
 					// translators: used between list items, there is a space after the comma
 					$categories_list = get_the_category_list( __( ', ', 'quota' ) );
-					
+
 					if ( $categories_list && quota_categorized_blog() ) :
 						printf( __( '<span class="cat-links"> in %1$s</span>', 'quota' ), $categories_list );
 					endif;
 				?>
-				
 			</div>
 		<?php endif; ?>
 	</header>
@@ -37,8 +35,7 @@
 		</div>
 	<?php endif; ?>
 	<div class="entry-content">
-	
-		<?php 
+		<?php
 			// display either full posts or excerpts based on theme customizer options
 			if ( 'option2' == get_theme_mod( 'quota_post_content' ) ) :
 				the_content( __( 'Read More', 'quota' ) . '<i class="fa fa-arrow-circle-right button-icon"></i>' );
@@ -51,6 +48,5 @@
 			    the_excerpt();
 			endif;
 		?>
-		
 	</div>
 </article>

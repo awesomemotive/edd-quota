@@ -14,17 +14,15 @@
 
 get_header(); ?>
 
-<div class="store-content">
-
-	<?php 
-		// start the loop
-		while ( have_posts() ) : the_post();
-
-			get_template_part( 'templates/content', 'transaction-failed' );
-
-		endwhile; // end the loop
-	?>
-
-</div>
+	<div class="store-content">
+		<?php 
+			// start the loop
+			while ( have_posts() ) : the_post();
+	
+				get_template_part( 'templates/content', 'transaction-failed' );
+	
+			endwhile; // end the loop
+		?>
+	</div>
 
 <?php get_footer(); ?>

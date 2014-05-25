@@ -23,9 +23,7 @@ $ping = get_bloginfo('pingback_url');
 		<div class="main">
 			<?php do_action( 'before' ); ?>
 			<header class="site-header inner">
-			
 				<span class="site-title">
-				
 					<?php // display either a logo or site title based on theme customizer options ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 						<?php if ( get_theme_mod( 'quota_logo' ) ) : ?>
@@ -34,20 +32,17 @@ $ping = get_bloginfo('pingback_url');
 							<?php bloginfo( 'name' ); ?>
 						<?php endif; ?>
 					</a>
-					
 				</span>
-	
 				<?php if ( ! is_page_template( 'landing.php' ) ) : ?>
 					<nav id="site-navigation">
-						<span class="menu-toggle"><?php echo '<i class="fa fa-bars"></i> ' . __( 'Menu', 'quota' ); ?></span>								
-						<?php wp_nav_menu( array( 'theme_location' => 'header', 'fallback_cb' => 'quota_menu_fallback' ) ); ?>					
+						<span class="menu-toggle"><?php echo '<i class="fa fa-bars"></i> ' . __( 'Menu', 'quota' ); ?></span>			
+						<?php wp_nav_menu( array( 'theme_location' => 'header', 'fallback_cb' => 'quota_menu_fallback' ) ); ?>
 					</nav>
 				<?php endif; ?>
-				
 			</header>
 		</div>
 	</div>
-
+	
 <?php
 /**
  * The HTML used to build the actual headlines are located in the 

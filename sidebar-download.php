@@ -5,7 +5,6 @@
 ?>
 
 <div class="sidebar">
-
 	<?php 
 		/**
 		 * located in the inc/edd-functions.php file, this function 
@@ -20,5 +19,4 @@
 		do_action( 'before_sidebar' );
 		dynamic_sidebar( 'sidebar-download' );
 	?>
-	
 </div>

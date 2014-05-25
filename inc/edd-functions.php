@@ -3,13 +3,11 @@
  * these functions apply directly to EDD functionality 
  */
 
-	
-	
+
 /** ===============
  * No purchase button below download content
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
-
 
 
 /** =============== 
@@ -39,26 +37,25 @@ function quota_item_price_template() {
 		'starting_price'	=> __( 'Starting at: ', 'quota' ),
 		'free'				=> __( 'Free ', 'quota' ),
 	));
-	
+
 	if ( edd_has_variable_prices( get_the_ID() ) ) :
 
 		// if the download has variable prices,
 		// show the first one as a starting price
 		echo $item_info[ 'starting_price' ];
 		edd_price( get_the_ID() );
-		
+
 	elseif ( '0' != edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) :
-	
+
 		echo $item_info[ 'price' ];
 		edd_price( get_the_ID() ); 
-		
+
 	else :
-	
+
 		echo $item_info[ 'free' ];
-		
+
 	endif;
 }
-
 
 
 /** ===============
@@ -69,7 +66,6 @@ function quota_add_comments_support( $supports ) {
 	return $supports;	
 }
 add_filter( 'edd_download_supports', 'quota_add_comments_support' );
-
 
 
 /** ===============

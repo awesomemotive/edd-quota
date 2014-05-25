@@ -34,28 +34,21 @@ $products = new WP_Query( $product_args );
 					<a class="product-title" href="<?php the_permalink(); ?>">
 						<?php the_title( '<h4>', '</h4>' ); ?>
 					</a>
-					
 					<div class="product-image">
 						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail( 'product-image' ); ?>
 						</a>
-						
 						<?php if ( function_exists( 'edd_price' ) ) : ?>
 							<p class="product-price">
-							
 								<?php quota_item_price_template(); ?>
-								
 							</p>
 						<?php endif; ?>
-						
 					</div>
-					
 					<?php if ( function_exists( 'edd_price' ) ) : ?>
 						<p class="product-buttons">
 							<a class="product-button" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'quota_product_info_button', __( 'View Details', 'quota' ) ); ?><i class="fa fa-arrow-circle-right button-icon"></i></a>
 						</p>
 					<?php endif; ?>
-					
 				</div>
 				
 				<?php $i+=1;
@@ -65,7 +58,6 @@ $products = new WP_Query( $product_args );
 		</div>
 		
 		<div class="navigation-paging store-pagination">
-		
 			<?php 					
 				$big = 999999999; // an unlikely integer					
 				echo paginate_links( array(
@@ -75,7 +67,6 @@ $products = new WP_Query( $product_args );
 					'total' => $products->max_num_pages
 				) );
 			?>
-			
 		</div>
 	
 	<?php else : ?>

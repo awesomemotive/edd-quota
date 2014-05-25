@@ -8,7 +8,6 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<div class="entry-meta">
-		
 			<?php
 				// image byline information
 				$metadata = wp_get_attachment_metadata();
@@ -22,7 +21,6 @@
 
 				edit_post_link( __( ' Edit', 'quota' ), '<span class="edit-link">', '</span>' );
 			?>
-			
 		</div>
 	</header>
 
@@ -37,7 +35,6 @@
 				</div>
 			<?php endif; ?>
 		</div>
-
 		<?php
 			the_content();
 			wp_link_pages( array(
@@ -45,7 +42,6 @@
 				'after'  => '</div>',
 			) );
 		?>
-		
 	</div>
 
 	<nav role="navigation" class="navigation-image">

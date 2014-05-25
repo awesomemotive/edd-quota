@@ -19,21 +19,18 @@
 		</div>
 	<?php endif; ?>
 
-	<div class="entry-content">
-	
+	<div class="entry-content">	
 		<?php 
 			the_content();
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'quota' ),
 				'after'  => '</div>',
 			) );
-		?>
-		
+		?>		
 	</div>
 
 	<footer class="entry-footer">
-		<div class="entry-meta">
-	
+		<div class="entry-meta">	
 			<?php
 				// translators: used between list items, there is a space after the comma
 				$category_list = get_the_category_list( __( ', ', 'quota' ) );

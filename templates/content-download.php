@@ -16,7 +16,6 @@
 	<?php endif; ?>
 
 	<div class="entry-content">
-	
 		<?php 
 			the_content();
 			wp_link_pages( array(
@@ -24,6 +23,5 @@
 				'after'  => '</div>',
 			) );
 		?>
-		
 	</div>
 </article>

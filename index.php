@@ -9,7 +9,6 @@
 get_header(); ?>
 
 	<div class="content clear">
-
 		<?php 
 			if ( have_posts() ) :
 				$count = 0;
@@ -36,7 +35,6 @@ get_header(); ?>
 				
 			endif; 
 		?>
-
 	</div>
 
 <?php get_sidebar(); ?>

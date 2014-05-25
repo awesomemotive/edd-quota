@@ -4,7 +4,6 @@
  */
 
 
-
 /** ===============
  * Social networking profiles for post footer and headline
  */
@@ -15,7 +14,7 @@ function quota_social_profiles() {
 	 * has a URL. If so, create a link for that profile in the post
 	 * footer. If not, do nothing.
 	 */
-	$social_profiles = array( 
+	$social_profiles = array(
 		'twitter'	=> array(
 			'name' 		=> 'Twitter',
 			'option'	=> get_theme_mod( 'quota_twitter' ),
@@ -41,10 +40,10 @@ function quota_social_profiles() {
 	foreach ( $social_profiles as $profile ) {
 		if ( $profile[ 'option' ] ) :
 			if ( is_single() ) : ?>
-				<a href="<?php echo esc_url( $profile[ 'option' ] ); ?>"><?php echo $profile[ 'name' ]; ?></a> 
+				<a href="<?php echo esc_url( $profile[ 'option' ] ); ?>"><?php echo $profile[ 'name' ]; ?></a>
 				<?php
 			elseif ( ( is_home() && is_front_page() ) || ( is_front_page() && ! is_home() ) ) : ?>
-				<a href="<?php echo esc_url( $profile[ 'option' ] ); ?>"><?php echo $profile[ 'icon' ]; ?></a> 
+				<a href="<?php echo esc_url( $profile[ 'option' ] ); ?>"><?php echo $profile[ 'icon' ]; ?></a>
 				<?php
 			endif;
 		endif;
@@ -58,7 +57,7 @@ add_action( 'quota_front_page_headline', 'quota_social_profiles' );
  * Register sidebar areas and update sidebars with default widgets
  */
 function quota_widgets_init() {
-	
+
 	/**
 	 * Array with unique information about the various widgetized areas
 	 */
@@ -90,29 +89,27 @@ function quota_widgets_init() {
 add_action( 'widgets_init', 'quota_widgets_init' );
 
 
-
 /** ===============
  * Adds custom classes to the array of body classes
  */
 function quota_body_classes( $classes ) {
 
 	if ( is_page_template( 'edd-store-front.php' ) ) :
-	
+
 		// add .store-front body class to pages that use the Store Front template
 		$classes[] = 'store-front';
 	elseif ( is_page_template( 'landing.php' ) ) :
-	
+
 		// add .landing body class to pages that use the Landing template
 		$classes[] = 'landing';
 	endif;
-	
-	if ( is_multi_author() ) 
+
+	if ( is_multi_author() )
 		$classes[] = 'group-blog';
-		
+
 	return $classes;
 }
 add_filter( 'body_class', 'quota_body_classes');
-
 
 
 /** ===============
@@ -141,7 +138,6 @@ function quota_wp_title( $title, $sep ) {
 add_filter( 'wp_title', 'quota_wp_title', 10, 2 );
 
 
-
 /** ===============
  * Replace excerpt ellipses with new ellipses and link to full article
  */
@@ -151,14 +147,13 @@ function quota_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'quota_excerpt_more' );
 
 
-
 /** ===============
  * Protected posts custom password form
  */
 function quota_password_form() {
     global $post;
     $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-    
+
     $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post"><p class="password-protected">
     ' . __( 'To view this protected post, enter the password below:', 'quota' ) . '</p>
     <input name="post_password" class="post-password" id="' . $label . '" type="password" size="20" placeholder="Enter Password" /><input type="submit" name="Submit" value="' . esc_attr__( 'Submit' ) . '" />
@@ -169,7 +164,6 @@ function quota_password_form() {
 add_filter( 'the_password_form', 'quota_password_form' );
 
 
-
 /** ===============
  * Only show regular posts in search results
  */
@@ -178,8 +172,7 @@ function quota_search_filter( $query ) {
 		$query->set( 'post_type', 'post' );
 	return $query;
 }
-add_filter('pre_get_posts','quota_search_filter');
-
+add_filter( 'pre_get_posts','quota_search_filter' );
 
 
 /** ===============
@@ -230,7 +223,6 @@ if ( ! function_exists( 'quota_content_nav' ) ) :
 		<?php
 	}
 endif; // quota_content_nav
-
 
 
 /** ===============
@@ -284,7 +276,6 @@ if ( ! function_exists( 'quota_the_attached_image' ) ) :
 endif; // quota_the_attached_image
 
 
-
 /** ===============
  * Prints HTML with meta information for the current post-date/time and author.
  */
@@ -314,7 +305,6 @@ if ( ! function_exists( 'quota_posted_on' ) ) :
 endif; // quota_posted_on
 
 
-
 /** ===============
  * Returns true if a blog has more than 1 category
  */
@@ -339,7 +329,6 @@ function quota_categorized_blog() {
 		return false;
 	}
 }
-
 
 
 /** ===============

@@ -4,32 +4,31 @@
  */
 
 
-
 /** ===============
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
- */ 
+ */
 if ( ! function_exists( 'quota_comment' ) ) :
 	function quota_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
-	
+
 		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
-	
+
 			<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 				<div class="comment-body">
 					<?php _e( 'Pingback:', 'quota' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'quota' ), '<span class="edit-link">', '</span>' ); ?>
 				</div>
 			</li>
-	
+
 		<?php else : ?>
-	
+
 			<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 				<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 					<footer class="comment-meta">
 						<div class="comment-author vcard clear">
 							<span class="comment-avatar">
-								<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, 45 ); ?>					
+								<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, 45 ); ?>
 							</span>
 							<span class="comment-info">
 								<?php printf( __( 'Comment by %s on', 'quota' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
@@ -41,29 +40,25 @@ if ( ! function_exists( 'quota_comment' ) ) :
 								<?php edit_comment_link( __( 'Edit', 'quota' ), '<span class="edit-link">', '</span>' ); ?>
 							</span>
 						</div>
-		
-						<div class="comment-metadata">
-						</div>
-		
+
 						<?php if ( '0' == $comment->comment_approved ) : ?>
 						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'quota' ); ?></p>
 						<?php endif; ?>
 					</footer>
-		
+
 					<div class="comment-content">
 						<?php comment_text(); ?>
 					</div>
-		
+
 					<div class="comment-reply">
 						<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 					</div>
 				</article>
 			</li>
-	
+
 		<?php endif; // ends check for comment type (comment or ping)
 	}
 endif; // ends check for quota_comment()
-
 
 
 /** ===============
@@ -81,7 +76,9 @@ if ( post_password_required() )
 		<span class="comments-title">
 			<?php
 				printf( _nx( 'One response to &ldquo;%2$s&rdquo;', '%1$s responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'quota' ),
-					number_format_i18n( get_comments_number() ), '<span class="comments-post-title">' . get_the_title() . '</span>' );
+					number_format_i18n( get_comments_number() ),
+					'<span class="comments-post-title">' . get_the_title() . '</span>' 
+				);
 			?>
 		</span>
 
@@ -94,7 +91,6 @@ if ( post_password_required() )
 		<?php endif; // check for comment navigation ?>
 
 		<ol class="comment-list">
-		
 			<?php
 				/** 
 				 * Loop through and list the comments. Tell wp_list_comments()
@@ -105,7 +101,6 @@ if ( post_password_required() )
 				 */
 				wp_list_comments( array( 'callback' => 'quota_comment' ) );
 			?>
-			
 		</ol>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
@@ -130,28 +125,25 @@ if ( post_password_required() )
 		 * Comment Form
 		 */
 		$commenter = wp_get_current_commenter();
-		$req = get_option('require_name_email');
-		$aria_req = ($req ? " aria-required='true'" : '');
+		$req = get_option( 'require_name_email' );
+		$aria_req = ( $req ? " aria-required='true'" : '' );
 		
-		comment_form( 
-			array( 
+		comment_form(
+			array(
 				'comment_field'			=> '<p class="comment-form-comment"><textarea id="comment" name="comment" rows="8" aria-required="true"></textarea></p>',
 				'comment_notes_after'	=> '',
 				'title_reply'			=> __( 'Leave a Reply', 'quota' ),
 				'cancel_reply_link'		=> '<span class="cancel-reply">' . __( 'Cancel Reply', 'quota' ) . '</span>',
 				'label_submit'			=> __( 'Submit Comment', 'quota' ),
-				'fields'				=> apply_filters( 'comment_form_default_fields', 
-				
+				'fields'				=> apply_filters( 'comment_form_default_fields',
+
 					array(
 						'author'	=> '<p class="comment-form-author">' . '<input id="author" name="author" type="text" placeholder="' . __( 'Name', 'quota' ) . '" size="30" class="comment-form-field required" ' . $aria_req . ' /></p>',
-						
 						'email'		=> '<p class="comment-form-email">' . '<input id="email" name="email" type="text" placeholder="' . __( 'Email', 'quota' ) . '" size="30" class="comment-form-field required"' . $aria_req . ' /></p>',
-						
 						'url'		=> '<p class="comment-form-url"><input id="url" name="url" type="text" placeholder="' . __( 'Website URL', 'quota' ) . '" size="30" class="comment-form-field" /></p>'
 					)
 				)
-			) 
+			)
 		);
 	?>
-
 </div>

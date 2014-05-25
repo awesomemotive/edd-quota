@@ -10,16 +10,14 @@
 
 get_header(); ?>
 
-<section class="content clear">
-
-	<?php 
-		/** the loop is inside of the content-archive.php file due to the
-		 * way archive pages are structured
-		 */
-		get_template_part( 'templates/content', 'archive' ); 
-	?>
-	
-</section>
+	<section class="content clear">
+		<?php 
+			/** the loop is inside of the content-archive.php file due to the
+			 * way archive pages are structured
+			 */
+			get_template_part( 'templates/content', 'archive' ); 
+		?>
+	</section>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

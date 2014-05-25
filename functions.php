@@ -32,5 +32,5 @@
  * Placing all custom functions below that line will keep Quota's core 
  * functions running before the child theme's functions. Awesome. :)
  */
- 
+
 require_once('inc/quota-functions.php'); // Quota's main functions

@@ -46,4 +46,3 @@ if ( have_posts() ) : ?>
 		get_template_part( 'templates/content', 'no-results' );
 
 	endif; // end the loop
-?>

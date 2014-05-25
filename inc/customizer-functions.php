@@ -3,8 +3,8 @@
  * Quota Theme Customizer
  */
 function quota_customize_register( $wp_customize ) {
-	
-	
+
+
 	/** ===============
 	 * Extends controls class to add textarea
 	 */
@@ -18,19 +18,19 @@ function quota_customize_register( $wp_customize ) {
 			<?php
 		}
 	}
-	
-	
+
+
 	/** ===============
 	 * Site Title, Logo, Tagline
 	 */
 	// change section title
 	$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Title (Logo) & Tagline', 'quota' );
 	$wp_customize->get_section( 'title_tagline' )->priority = 10;
-	
+
 	// site title settings
 	$wp_customize->get_control( 'blogname' )->priority = 10;
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-	
+
 	// Image uploader setting
 	$wp_customize->add_setting( 'quota_logo', array( 'default' => null ) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'quota_logo', array(
@@ -39,12 +39,12 @@ function quota_customize_register( $wp_customize ) {
 		'settings'	=> 'quota_logo',
 		'priority'	=> 20
 	) ) );
-	
+
 	// tagline settings
 	$wp_customize->get_control( 'blogdescription' )->priority = 30;
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	
-	
+
+
 	/** ===============
 	 * Color Options
 	 */
@@ -52,7 +52,7 @@ function quota_customize_register( $wp_customize ) {
 	$wp_customize->get_section( 'colors' )->title = __( 'Color Settings', 'quota' );
 	// change priority
 	$wp_customize->get_section( 'colors' )->priority = 20;
-	 	 
+
 	// Color customization options
 	$colors = array();
 	$colors[] = array(
@@ -87,14 +87,14 @@ function quota_customize_register( $wp_customize ) {
 	);
 	// Build settings from $colors array
 	foreach( $colors as $color ) {
-	
+
 		// customizer settings
 		$wp_customize->add_setting( $color['slug'], array(
 			'default'		=> $color['default'],
 			'type'			=> 'option', 
 			'capability'	=> 'edit_theme_options'
 		) );
-		
+
 		// customizer controls
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $color['slug'], array(
 			'label'		=> $color['label'], 
@@ -113,7 +113,7 @@ function quota_customize_register( $wp_customize ) {
 		'description'	=> __( 'Adjust the display of content on your website. All options have a default value that can be left as-is but you are free to customize.', 'quota' ),
 		'priority'		=> 30,
 	) );
-	
+
 	// excerpts or full posts
 	$wp_customize->add_setting( 'quota_post_content', array(
 		'default'			=> 'option2',
@@ -129,7 +129,7 @@ function quota_customize_register( $wp_customize ) {
 		    'option2'	=> 'option2',
 		),
 	) ) );
-	
+
 	// read more link
 	$wp_customize->add_setting( 'quota_read_more', array(
 		'default'			=> __( 'Read More', 'quota' ) . '<i class="fa fa-arrow-circle-right button-icon"></i>',
@@ -140,7 +140,7 @@ function quota_customize_register( $wp_customize ) {
 	    'section' 	=> 'quota_content_section',
 		'priority'	=> 20,
 	) );
-	
+
 	// feed featured images
 	$wp_customize->add_setting( 'quota_feed_featured_image', array(
 		'default'			=> 'option1',
@@ -156,7 +156,7 @@ function quota_customize_register( $wp_customize ) {
 		    'option2'	=> 'option2',
 		),
 	) ) );
-	
+
 	// single featured images
 	$wp_customize->add_setting( 'quota_single_featured_image', array(
 		'default'			=> 'option1',
@@ -172,7 +172,7 @@ function quota_customize_register( $wp_customize ) {
 		    'option2'	=> 'option2',
 		),
 	) ) );
-	
+
 	// single post footer
 	$wp_customize->add_setting( 'quota_post_footer', array(
 		'default'			=> 'option1',
@@ -188,7 +188,7 @@ function quota_customize_register( $wp_customize ) {
 		    'option2'	=> 'option2',
 		),
 	) ) );
-	
+
 	// page comments
 	$wp_customize->add_setting( 'quota_page_comments', array(
 		'default'			=> 'option2',
@@ -204,7 +204,7 @@ function quota_customize_register( $wp_customize ) {
 		    'option2'	=> 'option2',
 		),
 	) ) );
-	
+
 	// site footer info
 	$wp_customize->add_setting( 'quota_credits_copyright', array(
 		'default'			=> null,
@@ -225,7 +225,7 @@ function quota_customize_register( $wp_customize ) {
 		'description'	=> __( 'All other EDD options are under Dashboard => Downloads.', 'quota' ),
 		'priority'		=> 40,
 	) );
-	
+
 	// store front main headline
 	$wp_customize->add_setting( 'quota_store_front_headlines', array(
 		'default'			=> null,
@@ -236,7 +236,7 @@ function quota_customize_register( $wp_customize ) {
 	    'section'	=> 'quota_edd_options',
 		'priority'	=> 10,
 	) );
-	
+
 	// store front/downloads archive description
 	$wp_customize->add_setting( 'quota_store_archives_description', array(
 		'default'			=> null,
@@ -247,7 +247,7 @@ function quota_customize_register( $wp_customize ) {
 		'section'	=> 'quota_edd_options',
 		'priority'	=> 20,
 	) ) );
-	
+
 	// view details button
 	$wp_customize->add_setting( 'quota_product_info_button', array(
 		'default'			=> __( 'View Details', 'quota' ),
@@ -258,7 +258,7 @@ function quota_customize_register( $wp_customize ) {
 	    'section'	=> 'quota_edd_options',
 		'priority'	=> 30,
 	) );
-	
+
 	// store front item count
 	$wp_customize->add_setting( 'quota_store_front_count', array(
 		'default'			=> 9,
@@ -269,7 +269,7 @@ function quota_customize_register( $wp_customize ) {
 	    'section'	=> 'quota_edd_options',
 		'priority'	=> 40,
 	) );
-	
+
 	// download comments
 	$wp_customize->add_setting( 'quota_download_comments', array(
 		'default'			=> 'option2',
@@ -311,7 +311,7 @@ function quota_customize_register( $wp_customize ) {
 		'description'	=> __( 'Paste full URLs to profiles. The URLs will be used in various places around the theme like the post footer author section on single posts.', 'quota' ),
 		'priority'		=> 70,
 	) );
-	
+
 	// twitter URL
 	$wp_customize->add_setting( 'quota_twitter', array(
 		'default'			=> null,
@@ -322,7 +322,7 @@ function quota_customize_register( $wp_customize ) {
 	    'section'	=> 'quota_social_networks',
 		'priority'	=> 10,
 	) );
-	
+
 	// Facebook URL
 	$wp_customize->add_setting( 'quota_facebook', array(
 		'default'			=> null,
@@ -333,7 +333,7 @@ function quota_customize_register( $wp_customize ) {
 	    'section'	=> 'quota_social_networks',
 		'priority'	=> 20,
 	) );
-	
+
 	// Google+ URL
 	$wp_customize->add_setting( 'quota_gplus', array(
 		'default'			=> null,
@@ -344,7 +344,7 @@ function quota_customize_register( $wp_customize ) {
 	    'section'	=> 'quota_social_networks',
 		'priority'	=> 30,
 	) );
-	
+
 	// LinkedIn URL
 	$wp_customize->add_setting( 'quota_linkedin', array(
 		'default'			=> null,
@@ -440,50 +440,48 @@ function quota_customizer_head_styles() {
 	$quota_secondary_color = get_option( 'quota_secondary_color' );
 	$quota_secondary_color_hover = get_option( 'quota_secondary_color_hover' );
 	$quota_text_color = get_option( 'quota_text_color' ); 
-	
+
 	echo '<style type="text/css">';
-		
+
 		/**
 		 * Only add styles to the head of the document if the styles
 		 * have been changed from default. 
-		 */	
+		 */
 		 
 		// Primary design color
 		if ('#0c6b9b' != $quota_primary_color ) :
 			echo "a, .navigation-main a:hover, .headline-text { color: {$quota_primary_color}; }\nbutton, html input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"], .button, .product-button, .more-link, .widget_calendar table caption, .widget_edd_downloads_calendar table caption, #edd_checkout_form_wrap legend { background-color: {$quota_primary_color}; }\n.headline-text a:hover { border-bottom: 2px solid {$quota_primary_color}; }";		
 		endif;
-		
+
 		// Primary design color - hover
 		if ('#034f75' != $quota_primary_color_hover ) :
 			echo "button:hover, .product-button:hover, html input[type=\"button\"]:hover, input[type=\"reset\"]:hover, input[type=\"submit\"]:hover, .button:hover, .more-link:hover { background-color: {$quota_primary_color_hover}; }\n";		
 		endif;
-		
+
 		// Secondary design color
 		if ('#75ba95' != $quota_secondary_color ) :
 			echo ".site-title a, .headline .social-icons a:hover { color: {$quota_secondary_color}; }\n.widget_calendar table > thead > tr, .widget_edd_downloads_calendar table > thead > tr, .single-post-footer { background-color: {$quota_secondary_color}; }\n.bypostauthor .comment-author { border-left: 3px solid {$quota_secondary_color}; }";		
 		endif;
-		
+
 		// Secondary design color - hover
 		if ('#5e9678' != $quota_secondary_color_hover ) :
 			echo ".site-title a:hover { color: {$quota_secondary_color_hover}; }\n";		
 		endif;
-		
+
 		// Primary text color
 		if ('#404040' != $quota_text_color ) :
 			echo "body, button, input, select, textarea, a.entry-title, .product-title, .edd_download_title a, .featured-downloads-title, .product-sidebar-price, .widget-title, .single-post-footer .post-footer-body, .menu-toggle, .entry-meta a, .comment-author a, .navigation-post a, .navigation-paging a, .navigation-image a, .widget_calendar table > tfoot td a, .widget_edd_downloads_calendar table > tfoot td a, .widget_recent_comments .recentcomments a:first-child, .widget_rss .rss-date { color: {$quota_text_color}; }\n";		
 		endif; 
-		
+
 		// Responsive
 		// Primary design color
 		if ('#0c6b9b' != $quota_primary_color ) :
 			echo "@media all and (max-width: 768px) { .headline-area { background: {$quota_primary_color}; } .headline-text { color: #fff; } }";
 		endif;
-	
+
 	echo '</style>';
-	
 }
 add_action( 'wp_head', 'quota_customizer_head_styles' );
-
 
 
 /** ===============
@@ -501,7 +499,6 @@ function quota_customizer_styles() { ?>
 	</style>
 <?php }
 add_action( 'customize_controls_print_styles', 'quota_customizer_styles' );
-
 
 
 /** ===============

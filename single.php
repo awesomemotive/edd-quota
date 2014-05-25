@@ -11,23 +11,21 @@
 get_header(); ?>
 
 	<div class="content clear">
-
-		<?php 
+		<?php
 			// start the loop
 			while ( have_posts() ) : the_post();
 			
 				get_template_part( 'templates/content', 'single' );
-					
+
 				// if comments are open or we have at least one comment, load the comment template
 				if ( comments_open() || '0' != get_comments_number() ) :
 					comments_template();
 				endif;
-				
+
 				quota_content_nav( 'nav-below' );
 
 			endwhile; // end the loop
 		?>
-
 	</div>
 
 <?php get_sidebar(); ?>

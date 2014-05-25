@@ -11,7 +11,6 @@
 
 	<div class="entry-content">
 		<p><?php _e( 'Try using search to find what you were looking for.', 'quota' ); ?></p>
-
 		<?php 
 			get_search_form();
 		
@@ -20,7 +19,6 @@
 				printf( '<p class="featured-downloads-intro">%1$s</p>', __( 'You may also be interested in our featured downloads listed below. Take a look.', 'quota' ) );
 			endif;
 		?>
-
 	</div>	
 	
 	<?php if ( function_exists( 'edd_fd_show_featured_downloads' ) ) : ?>

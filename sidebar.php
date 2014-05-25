@@ -7,7 +7,7 @@
 <div class="sidebar">
 
 	<?php do_action( 'before_sidebar' ); ?>
-	
+
 	<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
 			<aside class="widget widget_archive">
@@ -16,14 +16,14 @@
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 			</aside>
-				
+
 			<?php
 				// calendar widget settings
 				$calendar_args = array(
 					'before_widget'	=> '<aside class="widget widget_calendar">',
 					'after_widget'	=> '</aside>',
 				);
-				the_widget('WP_Widget_Calendar', '', $calendar_args); 
+				the_widget('WP_Widget_Calendar', '', $calendar_args);
 			?>
 
 			<aside class="widget widget_search">
@@ -32,5 +32,5 @@
 			</aside>
 
 	<?php endif; ?>
-	
+
 </div>

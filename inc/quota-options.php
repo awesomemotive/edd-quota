@@ -2,9 +2,8 @@
 /**
  * Quota admin options
  */
- 
- 
- 
+
+
 /** ===============
  * add settings page to menu
  */
@@ -15,16 +14,14 @@ function quota_add_options_page() {
 }
 
 
-
 /** ===============
  * register settings
  */
 function quota_options_init() {
 	register_setting( 'quota_license', 'quota_license_key', 'quota_sanitize_options' );
-} 
+}
 
 
- 
 /** ===============
  * add actions
  */
@@ -32,7 +29,6 @@ add_action( 'admin_init', 'quota_options_init' );
 add_action( 'admin_menu', 'quota_add_options_page' );
 
 
- 
 /** ===============
  * options output
  */
@@ -83,12 +79,10 @@ function quota_options_page() {
 }
 
 
-
-/***********************************************
-* Gets rid of the local license status option
-* when adding a new one
-***********************************************/
-
+/** ===============
+ * Gets rid of the local license status option
+ * when adding a new one
+ */
 function quota_sanitize_options( $new ) {
 	$old = get_option( 'quota_license_key' );
 	if( $old && $old != $new ) {

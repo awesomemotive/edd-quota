@@ -6,7 +6,6 @@
 if ( have_posts() ) : ?>
 	<header class="page-header">
 		<h1 class="page-title">
-		
 			<?php
 				// display taxonomy information before post feed
 				if ( is_category() ) :
@@ -43,7 +42,6 @@ if ( have_posts() ) : ?>
 
 				endif; // end taxonomy-specific title output
 			?>
-			
 		</h1>
 		
 		<?php

@@ -11,14 +11,13 @@
 get_header(); ?>
 
 	<section class="content clear">
-
 		<?php 
-			/** the loop is inside of the content-search.php file due to the
+			/** 
+			 * the loop is inside of the content-search.php file due to the
 			 * way search pages are structured
 			 */
-			get_template_part( 'templates/content', 'search' ); 
+			get_template_part( 'templates/content', 'search' );
 		?>
-
 	</section>
 
 <?php get_sidebar(); ?>

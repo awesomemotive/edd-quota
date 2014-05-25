@@ -11,7 +11,7 @@
 get_header(); ?>
 
 	<div class="error-404-content clear">
-	
+
 		<?php get_template_part( 'templates/content', '404' ); ?>
 
 	</div>

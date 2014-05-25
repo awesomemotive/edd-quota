@@ -19,7 +19,6 @@ define( 'QUOTA_PATH_LANGUAGES', QUOTA_DIR . '/languages' );
 define( 'QUOTA_PATH_UPDATER', QUOTA_PATH_INC . '/updater' );
 
 
-
 /** ===============
  * we need this stuff to survive... and "function" :)
  */
@@ -30,15 +29,13 @@ require QUOTA_PATH_INC . '/customizer-functions.php';
 require QUOTA_PATH_UPDATER . '/updater-functions.php';
 
 
-
 /** ===============
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
 	$content_width = 640; /* pixels */
-	
-	
-	
+
+
 /** ===============
  * Sets up theme defaults and registers support for various WordPress features.
  */
@@ -81,7 +78,6 @@ if ( ! function_exists( 'quota_setup' ) ) :
 	}
 endif; 
 add_action( 'after_setup_theme', 'quota_setup' );
-
 
 
 /** ===============
