@@ -39,16 +39,8 @@ $ping = get_bloginfo('pingback_url');
 	
 				<?php if ( ! is_page_template( 'landing.php' ) ) : ?>
 					<nav id="site-navigation">
-						<span class="menu-toggle"><?php _e( 'Menu', 'quota' ); ?></span>
-								
-						<?php 
-							$defaults = array( 
-								'theme_location' => 'header', 
-								'fallback_cb' => 'quota_menu_fallback' 
-							);
-							wp_nav_menu( $defaults ); 
-						?>
-						
+						<span class="menu-toggle"><?php echo '<i class="fa fa-bars"></i> ' . __( 'Menu', 'quota' ); ?></span>								
+						<?php wp_nav_menu( array( 'theme_location' => 'header', 'fallback_cb' => 'quota_menu_fallback' ) ); ?>					
 					</nav>
 				<?php endif; ?>
 				
