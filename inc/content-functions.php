@@ -173,9 +173,9 @@ add_filter( 'the_password_form', 'quota_password_form' );
 /** ===============
  * Only show regular posts in search results
  */
-function quota_search_filter($query) {
-	if ($query->is_search)
-		$query->set('post_type', 'post');
+function quota_search_filter( $query ) {
+	if ( $query->is_search && ! is_admin() )
+		$query->set( 'post_type', 'post' );
 	return $query;
 }
 add_filter('pre_get_posts','quota_search_filter');
