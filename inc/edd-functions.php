@@ -35,24 +35,26 @@ function quota_item_price_template() {
 
 	// custom price template filters 
 	$item_info = apply_filters( 'item_info', array(
-		'price'				=> 'Price:',
-		'starting_price'	=> 'Starting at:',
-		'free'				=> 'Free'
+		'price'				=> __( 'Price: ', 'quota' ),
+		'starting_price'	=> __( 'Starting at: ', 'quota' ),
+		'free'				=> __( 'Free ', 'quota' ),
 	));
 	
 	if ( edd_has_variable_prices( get_the_ID() ) ) :
 
 		// if the download has variable prices,
 		// show the first one as a starting price
-		_e( $item_info[ 'starting_price' ] . ' ', 'quota'); edd_price( get_the_ID() );
+		echo $item_info[ 'starting_price' ];
+		edd_price( get_the_ID() );
 		
 	elseif ( '0' != edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) :
 	
-		_e( $item_info[ 'price' ] . ' ', 'quota' ); edd_price( get_the_ID() ); 
+		echo $item_info[ 'price' ];
+		edd_price( get_the_ID() ); 
 		
 	else :
 	
-		_e( $item_info[ 'free' ] . ' ','quota' );
+		echo $item_info[ 'free' ];
 		
 	endif;
 }
