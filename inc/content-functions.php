@@ -6,6 +6,55 @@
 
 
 /** ===============
+ * Social networking profiles for post footer and headline
+ */
+function quota_social_profiles() {
+	/**
+	 * Built into the Customizer are a fields for social networking
+	 * profiles. Using the following array, check to see if the field
+	 * has a URL. If so, create a link for that profile in the post
+	 * footer. If not, do nothing.
+	 */
+	$social_profiles = array( 
+		'twitter'	=> array(
+			'name' 		=> 'Twitter',
+			'option'	=> get_theme_mod( 'quota_twitter' ),
+			'icon'		=> '<i class="fa fa-twitter-square"></i>',
+		),
+		'facebook'	=> array(
+			'name' 		=> 'Facebook',
+			'option'	=> get_theme_mod( 'quota_facebook' ),
+			'icon'		=> '<i class="fa fa-facebook-square"></i>',
+		),
+		'gplus'	=> array(
+			'name' 		=> 'Google+',
+			'option'	=> get_theme_mod( 'quota_gplus' ),
+			'icon'		=> '<i class="fa fa-google-plus-square"></i>',
+		),
+		'linkedin'	=> array(
+			'name' 		=> 'Linkedin',
+			'option'	=> get_theme_mod( 'quota_linkedin' ),
+			'icon'		=> '<i class="fa fa-linkedin-square"></i>',
+		),
+	);
+	// Build the social networking profile links based on the $social_profiles
+	foreach ( $social_profiles as $profile ) {
+		if ( $profile[ 'option' ] ) :
+			if ( is_single() ) : ?>
+				<a href="<?php echo esc_url( $profile[ 'option' ] ); ?>"><?php echo $profile[ 'name' ]; ?></a> 
+				<?php
+			elseif ( ( is_home() && is_front_page() ) || ( is_front_page() && ! is_home() ) ) : ?>
+				<a href="<?php echo esc_url( $profile[ 'option' ] ); ?>"><?php echo $profile[ 'icon' ]; ?></a> 
+				<?php
+			endif;
+		endif;
+	}
+}
+add_action( 'quota_author_box', 'quota_social_profiles' );
+add_action( 'quota_front_page_headline', 'quota_social_profiles' );
+
+
+/** ===============
  * Register sidebar areas and update sidebars with default widgets
  */
 function quota_widgets_init() {
