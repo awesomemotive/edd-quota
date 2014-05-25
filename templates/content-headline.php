@@ -18,6 +18,9 @@ if ( ( is_home() && is_front_page() ) || ( is_front_page() && ! is_home() ) ) :
 	echo $start_headline; ?>
 	
 			<h1 class="site-description headline-text"><?php echo get_bloginfo( 'description' ); ?></h1>
+			<div class="social-icons">
+				<?php do_action( 'quota_front_page_headline' ); ?>
+			</div>
 			
 	<?php echo $end_headline;
 

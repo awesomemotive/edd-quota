@@ -84,43 +84,8 @@
 				<?php echo get_avatar( get_the_author_meta( 'ID' ), 75, '', get_the_author_meta( 'display_name' ) ); ?>
 			</div>
 			<div class="post-footer-author">
-				<h3><?php _e( 'Written by ' . get_the_author_meta( 'display_name' ), 'quota' ); ?></h3>
-				<p>
-				
-					<?php 
-						/**
-						 * Built into the Customizer are a fields for social networking
-						 * profiles. Using the following array, check to see if the field
-						 * has a URL. If so, create a link for that profile in the post
-						 * footer. If not, do nothing.
-						 */
-						$social_profiles = array( 
-							'twitter'	=> array(
-								'name' 		=> 'Twitter',
-								'option'	=> get_theme_mod( 'quota_twitter' )
-							),
-							'facebook'	=> array(
-								'name' 		=> 'Facebook',
-								'option'	=> get_theme_mod( 'quota_facebook' )
-							),
-							'gplus'	=> array(
-								'name' 		=> 'Google+',
-								'option'	=> get_theme_mod( 'quota_gplus' )
-							),
-							'linkedin'	=> array(
-								'name' 		=> 'Linkedin',
-								'option'	=> get_theme_mod( 'quota_linkedin' )
-							),
-						);
-						// Build the social networking profile links based on the $social_profiles
-						foreach ( $social_profiles as $profile ) {
-							if ( '' != $profile[ 'option' ] ) : ?>
-								<a href="<?php echo $profile[ 'option' ] ?>"><?php echo $profile[ 'name' ]; ?></a> 
-							<?php endif;
-						}
-					?>
-										
-				</p>
+				<h3><?php printf( __( 'Written by %s', 'quota' ), get_the_author_meta( 'display_name' ) ); ?></h3>
+				<p><?php do_action( 'quota_author_box' ); ?></p>
 			</div>
 		</div>
 		<div class="post-footer-body">
