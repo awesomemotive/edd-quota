@@ -9,9 +9,11 @@
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header>
 	
-	<div class="featured-image">
-		<?php ( has_post_thumbnail() ? the_post_thumbnail() : ''); ?>
-	</div>
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="featured-image">
+			<?php the_post_thumbnail(); ?>
+		</div>
+	<?php endif; ?>
 
 	<div class="entry-content">
 	

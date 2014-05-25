@@ -28,13 +28,14 @@
 			</div>
 		<?php endif; ?>
 	</header>
-	
-	<div class="featured-image">
-		<a class="featured-image-anchor" href="<?php the_permalink(); ?>">
-			<?php ( has_post_thumbnail() ? the_post_thumbnail() : ''); ?>
-		</a>
-	</div>
-	
+	<?php // show featured image? theme customizer options ?>
+	<?php if ( 'option2' != get_theme_mod( 'quota_feed_featured_image' ) && has_post_thumbnail() ) : ?>
+		<div class="featured-image">
+			<a class="featured-image-anchor" href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail(); ?>
+			</a>
+		</div>
+	<?php endif; ?>
 	<div class="entry-content">
 	
 		<?php 

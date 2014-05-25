@@ -14,9 +14,9 @@
 	</header>
 	
 	<?php // show featured image? theme customizer options ?>
-	<?php if ( 'option1' == get_theme_mod( 'quota_single_featured_image' ) ) : ?>
+	<?php if ( 'option1' == get_theme_mod( 'quota_single_featured_image' ) && has_post_thumbnail() ) : ?>
 		<div class="featured-image">
-			<?php ( has_post_thumbnail() ? the_post_thumbnail() : ''); ?>
+			<?php the_post_thumbnail(); ?>
 		</div>
 	<?php endif; ?>
 
