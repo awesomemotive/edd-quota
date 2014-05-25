@@ -69,6 +69,6 @@ if ( have_posts() ) : ?>
 
 else :
 	
-	get_template_part( 'no-results', 'archive' );
+	get_template_part( 'templates/content', 'no-results' );
 		
 endif; // end check for posts
