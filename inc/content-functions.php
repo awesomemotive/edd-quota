@@ -211,8 +211,8 @@ if ( ! function_exists( 'quota_content_nav' ) ) :
 	
 		<?php if ( is_single() ) : // navigation links for single posts ?>
 	
-			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'quota' ) . '</span> %title' ); ?>
-			<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'quota' ) . '</span>' ); ?>
+			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav"><i class="fa fa-arrow-circle-left button-icon"></i>' . _x( '%title', 'Previous post link', 'quota' ) . '</span>' ); ?>
+			<?php next_post_link( '<div class="nav-next">%link</div>', '<span class="meta-nav">' . _x( '%title', 'Next post link', 'quota' ) . '<i class="fa fa-arrow-circle-right button-icon"></i></span>' ); ?>
 	
 		<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 	
