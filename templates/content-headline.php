@@ -9,8 +9,8 @@
  * the tagline on the homepage, the headline on the store
  * front, and any additional headlines you'd like to add.
  */
-$start_headline = "<div class=\"headline-area full\"><div class=\"main\"><div class=\"headline inner\">";
-$end_headline = "</div></div></div>";
+$start_headline = '<div class="headline-area full"><div class="main"><div class="headline inner">';
+$end_headline = '</div></div></div>';
 
 
 // Show headline area on the blog IF it's the homepage. Otherwise, show it on the homepage...
