@@ -88,8 +88,10 @@
 				<p><?php do_action( 'quota_author_box' ); ?></p>
 			</div>
 		</div>
-		<div class="post-footer-body">
-			<p><?php echo get_the_author_meta( 'description' ); ?></p>
-		</div>
+		<?php if ( '' != get_the_author_meta( 'description' ) ) : ?>
+			<div class="post-footer-body">
+				<p><?php echo get_the_author_meta( 'description' ); ?></p>
+			</div>
+		<?php endif; ?>
 	</div>
 <?php endif; ?>
