@@ -4,7 +4,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'edd-checkout' ); ?>>	
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'quota-checkout' ); ?>>	
 	<div class="entry-content">
 		<?php the_content(); ?>
 	</div>

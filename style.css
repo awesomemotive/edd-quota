@@ -477,7 +477,7 @@ cite.fn { font-style: normal; }
  * some styles are located in the edd_templates/edd.css overwrite file
 ----------------------------------------------- */
 
-#edd_checkout_form_wrap, .edd-failed, .edd-purchase-history, .edd-purchase-confirmation, .edd-members { width: 640px; margin: 0 auto;}
+#edd_checkout_form_wrap, .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { width: 640px; margin: 0 auto;}
 .store-description p { max-width: 700px; }
 .threecol { float: left; margin-right: 5%; width: 30%; min-height: 400px; }
 .threecol.last { margin-right: 0; }
@@ -493,17 +493,17 @@ cite.fn { font-style: normal; }
 .page-numbers { display: inline-block; text-decoration: none; padding: 5px 13px; }
 
 /* page templates */
-.edd-failed, .edd-purchase-history, .edd-purchase-confirmation, .edd-members { padding-top: 0; }
-#edd_user_history, #edd_purchase_receipt, #edd_purchase_receipt_products tbody td, .edd-purchase-confirmation #edd_purchase_receipt thead th:first-child, .edd-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products, #edd_checkout_cart { border: 1px solid #f0f0f0; }
-.edd-purchase-confirmation #edd_purchase_receipt thead th:first-child, .edd-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products th{ background: #f5f5f5; }
+.quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { padding-top: 0; }
+#edd_user_history, #edd_purchase_receipt, #edd_purchase_receipt_products tbody td, .quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products, #edd_checkout_cart { border: 1px solid #f0f0f0; }
+.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products th{ background: #f5f5f5; }
 
 /* purchase-history */
 #edd_user_history { border-width: 1px 1px 0; margin-bottom: 3em; }
 
 /* purchase-confirmation */
 #edd_purchase_receipt { border-width: 1px; margin-bottom: 2em; }
-.edd-purchase-confirmation #edd_purchase_receipt thead th:first-child, .edd-purchase-confirmation #edd_purchase_receipt tbody td:first-child { padding: 15px 10px; border-width: 0 1px 1px 0; }
-.edd-purchase-confirmation #edd_purchase_receipt thead th:last-child, .edd-purchase-confirmation #edd_purchase_receipt tbody td:last-child { padding: 15px 10px; border-width: 0 0 1px; }
+.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child { padding: 15px 10px; border-width: 0 1px 1px 0; }
+.quota-purchase-confirmation #edd_purchase_receipt thead th:last-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:last-child { padding: 15px 10px; border-width: 0 0 1px; }
 #edd_purchase_receipt_products { margin-bottom: 3em; }
 #edd_purchase_receipt_products th { font-weight: bold; padding: 15px 10px; }
 #edd_purchase_receipt_products tbody td { border-width: 0 0 1px; }
@@ -515,8 +515,8 @@ cite.fn { font-style: normal; }
 /* profile */
 #edd_profile_editor_form legend { font-weight: bold; }
 #edd_profile_editor_form p > input, #edd_profile_editor_form p { margin-bottom: 1em; } 
-.edd-members #edd_login_form fieldset legend { margin-bottom: 1.5em; }
-.edd-members #edd_login_form label { display: inline-block; width: 200px; }
+.quota-members #edd_login_form fieldset legend { margin-bottom: 1.5em; }
+.quota-members #edd_login_form label { display: inline-block; width: 200px; }
 
 
 /* =EDD Plugin Compatibility
@@ -583,7 +583,7 @@ cite.fn { font-style: normal; }
 }
 
 @media all and (max-width: 768px) {
-	.content, .sidebar, .image-content, .error-404-content, .landing .site-content, #edd_checkout_form_wrap, .edd-failed, .edd-purchase-history, .edd-purchase-confirmation, .edd-members { float: none; margin: 0; width: 100%; }
+	.content, .sidebar, .image-content, .error-404-content, .landing .site-content, #edd_checkout_form_wrap, .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { float: none; margin: 0; width: 100%; }
 	.site-header { text-align: center; }
 	#site-navigation.toggled-on .nav-menu, #site-navigation ul li > ul { display: block; }
 	.menu-toggle { display: inline-block; background: #f1f1f1; margin: 2em 0 1em; }
