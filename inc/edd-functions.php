@@ -75,7 +75,7 @@ function quota_menu_fallback() { ?>
 	<ul class="cart-menu">
 		<li class="cart-menu-item">
 			<?php if ( class_exists( 'Easy_Digital_Downloads' ) ) : ?>
-				<a href="<?php echo edd_get_checkout_uri(); ?>"><?php _e( 'Shopping Cart Items: ', 'quota' ); echo edd_get_cart_quantity(); ?> - <span class="header-cart edd-cart-quantity"><?php echo edd_currency_filter( edd_format_amount( edd_get_cart_amount() ) ); ?></span></a>
+				<a href="<?php echo edd_get_checkout_uri(); ?>"><?php _e( 'Shopping Cart Items: ', 'quota' ); echo edd_get_cart_quantity(); ?> - <span class="header-cart edd-cart-quantity"><?php echo edd_currency_filter( edd_format_amount( edd_get_cart_subtotal() ) ); ?></span></a>
 			<?php else : ?>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo get_bloginfo( 'description' ); ?>"><?php _e( 'Home', 'quota' ); ?></a>
 			<?php endif; ?>
