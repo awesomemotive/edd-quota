@@ -41,6 +41,7 @@ input[type="email"],
 input[type="password"],
 input[type="search"],
 input[type="url"],
+input[type="number"],
 textarea,
 #site-navigation ul ul a:hover,
 .page-numbers,
@@ -167,6 +168,7 @@ input[type="email"],
 input[type="password"],
 input[type="search"],
 input[type="url"],
+input[type="number"],
 textarea,
 #site-navigation a,
 #site-navigation ul ul a,
@@ -290,7 +292,7 @@ input[type="checkbox"], input[type="radio"] { padding: 0; }
 input[type="search"] { -webkit-appearance: textfield; }
 input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
-input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="url"], textarea { padding: 15px; line-height: normal; border-left: 3px solid rgba(0,0,0,.05); }
+input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="url"], input[type="number"], textarea { padding: 15px; line-height: normal; border-left: 3px solid rgba(0,0,0,.05); }
 .required { border-left-color: lightcoral; }
 textarea { overflow: auto; padding: 10px 3px 3px 10px; border-width: 0 0 0 3px; width: 100%; vertical-align: top; }
 .screen-reader-text { clip: rect(1px, 1px, 1px, 1px); position: absolute !important; }
@@ -555,6 +557,10 @@ cite.fn { font-style: normal; }
 .widget-download-thumb { float: left; margin-right: 1em; }
 .widget-download-with-thumbnail a { font-weight: bold; text-decoration: none; }
 .widget-download-price { display: block; }
+.edd_download_quantity_wrapper { margin-bottom: 10px; }
+.edd_multi_mode input.edd-item-quantity { margin-left: 3px; }
+input.edd-item-quantity { padding: 6px 6px 6px 1em; max-width: 60px; }
+
 
 
 /* =Jetpack Modules Compatibility
