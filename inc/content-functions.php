@@ -156,7 +156,7 @@ function quota_password_form() {
 
     $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post"><p class="password-protected">
     ' . __( 'To view this protected post, enter the password below:', 'quota' ) . '</p>
-    <input name="post_password" class="post-password" id="' . $label . '" type="password" size="20" placeholder="Enter Password" /><input type="submit" name="Submit" value="' . esc_attr__( 'Submit' ) . '" />
+    <input name="post_password" class="post-password" id="' . $label . '" type="password" size="20" placeholder="' . esc_attr__( 'Enter Password', 'quota' ) . '" /><input type="submit" name="Submit" value="' . esc_attr__( 'Submit' ) . '" />
     </form>';
     
     return $o;
