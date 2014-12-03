@@ -165,17 +165,6 @@ add_filter( 'the_password_form', 'quota_password_form' );
 
 
 /** ===============
- * Only show regular posts in search results
- */
-function quota_search_filter( $query ) {
-	if ( $query->is_search && ! is_admin() )
-		$query->set( 'post_type', 'post' );
-	return $query;
-}
-add_filter( 'pre_get_posts','quota_search_filter' );
-
-
-/** ===============
  * Display navigation to next/previous pages when applicable
  */
 if ( ! function_exists( 'quota_content_nav' ) ) :
