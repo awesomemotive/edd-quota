@@ -9,7 +9,7 @@
  */
 define( 'QUOTA_NAME', 'Quota' );
 define( 'QUOTA_AUTHOR', 'Sean Davis' );
-define( 'QUOTA_VERSION', '1.2.3' );
+define( 'QUOTA_VERSION', '1.2.4' );
 define( 'QUOTA_HOME', 'https://easydigitaldownloads.com' );
 define( 'QUOTA_DIR', get_template_directory() );
 define( 'QUOTA_DIR_URI', get_template_directory_uri() );
