@@ -1,6 +1,6 @@
 <?php
 /**
- * Quota licensing by Easy Digital Downloads. 
+ * Quota licensing by Easy Digital Downloads.
  *
  * @package WordPress
  * @subpackage Quota
@@ -161,8 +161,8 @@ class QUOTA_EDD_SL_Theme_Updater {
 
 if ( is_admin() ) {
 	$quota_license = trim( get_option( 'quota_license_key' ) );
-	
-	$edd_updater = new QUOTA_EDD_SL_Theme_Updater( array( 
+
+	$edd_updater = new QUOTA_EDD_SL_Theme_Updater( array(
 			'remote_api_url' 	=> QUOTA_EDD_SL_STORE_URL,
 			'version' 			=> QUOTA_VERSION,
 			'license' 			=> $quota_license,
@@ -180,28 +180,28 @@ if ( is_admin() ) {
 
 function quota_activate_license() {
 
-	if( isset( $_POST['quota_license_activate'] ) ) { 
-	 	if( ! check_admin_referer( 'edd_sample_nonce', 'edd_sample_nonce' ) ) 	
+	if( isset( $_POST['quota_license_activate'] ) ) {
+	 	if( ! check_admin_referer( 'edd_sample_nonce', 'edd_sample_nonce' ) )
 			return; // get out if we didn't click the Activate button
 
 		global $wp_version;
 
 		$license = trim( get_option( 'quota_license_key' ) );
-				
-		$api_params = array( 
-			'edd_action'	=> 'activate_license', 
-			'license'		=> $license, 
+
+		$api_params = array(
+			'edd_action'	=> 'activate_license',
+			'license'		=> $license,
 			'item_name'		=> urlencode( QUOTA_EDD_SL_THEME_NAME ),
-			'url'			=> home_url() 
+			'url'			=> home_url()
 		);
-		
-		$response = wp_remote_get( add_query_arg( $api_params, QUOTA_EDD_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+
+		$response = wp_remote_get( esc_url( add_query_arg( $api_params, QUOTA_EDD_SL_STORE_URL ) ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 		if ( is_wp_error( $response ) )
 			return false;
 
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-		
+
 		// $license_data->license will be either "active" or "inactive"
 
 		update_option( 'quota_license_key_status', $license_data->license );
@@ -222,24 +222,24 @@ function quota_deactivate_license() {
 	// listen for our activate button to be clicked
 	if( isset( $_POST['quota_license_deactivate'] ) ) {
 
-		// run a quick security check 
-	 	if( ! check_admin_referer( 'edd_sample_nonce', 'edd_sample_nonce' ) ) 	
+		// run a quick security check
+	 	if( ! check_admin_referer( 'edd_sample_nonce', 'edd_sample_nonce' ) )
 			return; // get out if we didn't click the Activate button
 
 		// retrieve the license from the database
 		$license = trim( get_option( 'quota_license_key' ) );
-			
+
 
 		// data to send in our API request
-		$api_params = array( 
-			'edd_action'=> 'deactivate_license', 
-			'license' 	=> $license, 
+		$api_params = array(
+			'edd_action'=> 'deactivate_license',
+			'license' 	=> $license,
 			'item_name' => urlencode( QUOTA_EDD_SL_THEME_NAME ),
 			'url'       => home_url()
 		);
-		
+
 		// Call the custom API.
-		$response = wp_remote_get( add_query_arg( $api_params, QUOTA_EDD_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+		$response = wp_remote_get( esc_url( add_query_arg( $api_params, QUOTA_EDD_SL_STORE_URL ) ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 		// make sure the response came back okay
 		if ( is_wp_error( $response ) )
@@ -247,7 +247,7 @@ function quota_deactivate_license() {
 
 		// decode the license data
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-		
+
 		// $license_data->license will be either "deactivated" or "failed"
 		if( $license_data->license == 'deactivated' )
 			delete_option( 'quota_license_key' );

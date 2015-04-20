@@ -2,14 +2,14 @@
 /**
  * Quota functions and definitions
  */
- 
+
 
 /** ===============
  * Constants
  */
 define( 'QUOTA_NAME', 'Quota' );
 define( 'QUOTA_AUTHOR', 'Sean Davis' );
-define( 'QUOTA_VERSION', '1.2.4' );
+define( 'QUOTA_VERSION', '1.2.5' );
 define( 'QUOTA_HOME', 'https://easydigitaldownloads.com' );
 define( 'QUOTA_DIR', get_template_directory() );
 define( 'QUOTA_DIR_URI', get_template_directory_uri() );
@@ -42,7 +42,7 @@ if ( ! isset( $content_width ) )
 if ( ! function_exists( 'quota_setup' ) ) :
 
 	function quota_setup() {
-	
+
 		/**
 		 * Make theme available for translation
 		 * Translations can be filed in the /languages/ directory
@@ -50,25 +50,25 @@ if ( ! function_exists( 'quota_setup' ) ) :
 		 * to change 'quota' to the name of your theme in all the template files
 		 */
 		load_theme_textdomain( 'quota', QUOTA_PATH_LANGUAGES );
-	
+
 		/**
 		 * Add default posts and comments RSS feed links to head
 		 */
 		add_theme_support( 'automatic-feed-links' );
-	
+
 		/**
 		 * Enable support for Post Thumbnails on posts and pages
 		 */
 		add_theme_support( 'post-thumbnails' );
-		
+
 			// hard crop store front and taxonomy product images for downloads
 			add_image_size( 'product-image', 728, 453, true );
-		
+
 		/**
 		 * Add HTML support for various elements
 		 */
 		add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form', 'gallery' ) );
-	
+
 		/**
 		 * Quota uses wp_nav_menu() in one location.
 		 */
@@ -76,7 +76,7 @@ if ( ! function_exists( 'quota_setup' ) ) :
 			'header' => __( 'Header Menu', 'quota' ),
 		) );
 	}
-endif; 
+endif;
 add_action( 'after_setup_theme', 'quota_setup' );
 
 

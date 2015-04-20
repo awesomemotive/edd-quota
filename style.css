@@ -4,7 +4,7 @@
 	Author: Sean Davis
 	Author URI: http://seandavis.co
 	Description: Quota is a simple, bold, elegant theme for use with Easy Digital Downloads.
-	Version: 1.2.4
+	Version: 1.2.5
 	License: GNU General Public License
 	License URI: license.txt
 	Tags:
@@ -61,7 +61,7 @@ textarea,
 	background-color: rgba(0,0,0,.1);
 }
 
-mark, 
+mark,
 ins,
 .note,
 .no-comments,
@@ -101,9 +101,9 @@ input[type="submit"]:hover,
 	background-color: #75ba95; /* Secondary design color */
 }
 
-.entry-footer .entry-meta, 
-.navigation-paging.store-pagination { 
-	background: none; 
+.entry-footer .entry-meta,
+.navigation-paging.store-pagination {
+	background: none;
 }
 
 body,
@@ -232,8 +232,8 @@ article, aside, details, figcaption, figure, footer, header, nav, section { disp
 /* =Formatting
 -------------------------------------------------------------- */
 
-h1,h2,h3,h4,h5,h6, 
-.site-title, 
+h1,h2,h3,h4,h5,h6,
+.site-title,
 .menu a,
 .menu-toggle,
 .comments-title,
@@ -250,7 +250,7 @@ h1,h2,h3,h4,h5,h6,
 .site-content h6,
 .product-sidebar-price { margin: 0 0 .8em; }
 h1, h2, h3, .product-sidebar-price { font-size: 24px; line-height: 34px; line-height: 1.4em; }
-h4, h5 { font-size: 18px; line-height: 26px; } 
+h4, h5 { font-size: 18px; line-height: 26px; }
 h6 { font-size: 1em; line-height: 1.5em; }
 p, address { margin: 0 0 1.5em; }
 img { height: auto; max-width: 100%; }
@@ -431,7 +431,7 @@ embed, iframe, object { max-width: 100%; }
 .comment { list-style: none; }
 .comments-title, .comment-reply-title { display: block; font-size: 24px; line-height: 34px; font-weight: bold; margin-bottom: 1em; }
 .comment-author { padding: 1em; margin-bottom: 1em; border-left: 3px solid rgba(0,0,0,.05);}
-cite.fn { font-style: normal; } 
+cite.fn { font-style: normal; }
 .comment-avatar { float: left; }
 .comment-avatar img { vertical-align: top; }
 .comment-info { float: right;}
@@ -475,7 +475,7 @@ cite.fn { font-style: normal; }
 .footer-area a:hover { text-decoration: underline; }
 
 
-/* =Store & EDD styles - 
+/* =Store & EDD styles -
  * some styles are located in the edd_templates/edd.css overwrite file
 ----------------------------------------------- */
 
@@ -516,7 +516,7 @@ cite.fn { font-style: normal; }
 
 /* profile */
 #edd_profile_editor_form legend { font-weight: bold; }
-#edd_profile_editor_form p > input, #edd_profile_editor_form p { margin-bottom: 1em; } 
+#edd_profile_editor_form p > input, #edd_profile_editor_form p { margin-bottom: 1em; }
 .quota-members #edd_login_form fieldset legend { margin-bottom: 1.5em; }
 .quota-members #edd_login_form label { display: inline-block; width: 200px; }
 
