@@ -288,15 +288,6 @@ function quota_customize_register( $wp_customize ) {
 
 
 	/** ===============
-	 * Navigation Options
-	 */
-	// change title
-	$wp_customize->get_section( 'nav' )->title = __( 'Navigation Menu', 'quota' );
-	// change priority
-	$wp_customize->get_section( 'nav' )->priority = 50;
-
-
-	/** ===============
 	 * Front Page Options
 	 */
 	// change title
