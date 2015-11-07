@@ -5,12 +5,12 @@
 
 
 /** ===============
- * add settings page to menu
+ * add license page to Appearance menu
  */
-function quota_add_options_page() {
-	add_menu_page( __( QUOTA_NAME . ' Dashboard', 'quota' ), __( QUOTA_NAME, 'quota' ), 'manage_options', 'quota-options', 'quota_options_page', QUOTA_DIR_URI . '/inc/images/quota-admin-icon.png', 59 );
-	add_submenu_page( 'quota-options', QUOTA_NAME . __( ' Theme License', 'quota' ), __( 'License Key', 'quota' ), 'manage_options', 'quota-options', 'quota_options_page' );
+function quota_add_license_page() {
+	add_theme_page( QUOTA_NAME, QUOTA_NAME . __( ' Theme License', 'quota' ), 'manage_options', 'quota-license', 'quota_license_page' );
 }
+add_action( 'admin_menu', 'quota_add_license_page' );
 
 
 /** ===============
@@ -25,13 +25,13 @@ function quota_options_init() {
  * add actions
  */
 add_action( 'admin_init', 'quota_options_init' );
-add_action( 'admin_menu', 'quota_add_options_page' );
+add_action( 'admin_menu', 'quota_add_license_page' );
 
 
 /** ===============
- * options output
+ * license management page output
  */
-function quota_options_page() {
+function quota_license_page() {
 	$license 	= get_option( 'quota_license_key' );
 	$status 	= get_option( 'quota_license_key_status' );
 	?>
