@@ -22,11 +22,10 @@ define( 'QUOTA_PATH_UPDATER', QUOTA_PATH_INC . '/updater' );
 /** ===============
  * we need this stuff to survive... and "function" :)
  */
-require QUOTA_PATH_INC . '/quota-options.php';
 require QUOTA_PATH_INC . '/edd-functions.php';
 require QUOTA_PATH_INC . '/content-functions.php';
 require QUOTA_PATH_INC . '/customizer-functions.php';
-require QUOTA_PATH_UPDATER . '/updater-functions.php';
+require QUOTA_PATH_UPDATER . '/theme-updater.php';
 
 
 /** ===============
