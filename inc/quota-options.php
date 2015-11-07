@@ -10,7 +10,6 @@
 function quota_add_options_page() {
 	add_menu_page( __( QUOTA_NAME . ' Dashboard', 'quota' ), __( QUOTA_NAME, 'quota' ), 'manage_options', 'quota-options', 'quota_options_page', QUOTA_DIR_URI . '/inc/images/quota-admin-icon.png', 59 );
 	add_submenu_page( 'quota-options', QUOTA_NAME . __( ' Theme License', 'quota' ), __( 'License Key', 'quota' ), 'manage_options', 'quota-options', 'quota_options_page' );
-	add_submenu_page( 'quota-options', __( 'Customize', 'quota' ), __( 'Customizer', 'quota' ), 'manage_options', 'customize.php' );
 }
 
 
@@ -39,12 +38,12 @@ function quota_options_page() {
 	<div class="wrap">
 		<h2><?php _e( QUOTA_NAME . ' License Key Management' ); ?></h2>
 		<form method="post" action="options.php">
-		
+
 			<?php settings_fields( 'quota_license' ); ?>
-			
+
 			<table class="form-table">
 				<tbody>
-					<tr valign="top">	
+					<tr valign="top">
 						<th scope="row" valign="top">
 							<?php _e( 'License Key', 'quota' ); ?>
 						</th>
@@ -54,7 +53,7 @@ function quota_options_page() {
 						</td>
 					</tr>
 					<?php if( false !== $license ) { ?>
-						<tr valign="top">	
+						<tr valign="top">
 							<th scope="row" valign="top">
 								<?php _e( 'Activate License', 'quota' ); ?>
 							</th>
@@ -71,9 +70,9 @@ function quota_options_page() {
 						</tr>
 					<?php } ?>
 				</tbody>
-			</table>	
+			</table>
 			<?php submit_button(); ?>
-		
+
 		</form>
 	<?php
 }
