@@ -1,6 +1,6 @@
 <?php
 /**
- * these functions apply directly to EDD functionality 
+ * these functions apply directly to EDD functionality
  */
 
 
@@ -10,14 +10,14 @@
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
 
-/** =============== 
+/** ===============
  * Item info above sidebar on single download items
  */
-function quota_download_item_before_sidebar() { ?>		
+function quota_download_item_before_sidebar() { ?>
 	<div class="product-info-wrapper">
 		<p class="product-sidebar-price">
 			<?php quota_item_price_template(); ?>
-		</p>	
+		</p>
 		<p class="product-download-buy-button">
 			<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 		</p>
@@ -29,9 +29,9 @@ function quota_download_item_before_sidebar() { ?>
 /** ===============
  * Item pricing information
  */
-function quota_item_price_template() { 	
+function quota_item_price_template() {
 
-	// custom price template filters 
+	// custom price template filters
 	$item_info = apply_filters( 'item_info', array(
 		'price'				=> __( 'Price: ', 'quota' ),
 		'starting_price'	=> __( 'Starting at: ', 'quota' ),
@@ -48,7 +48,7 @@ function quota_item_price_template() {
 	elseif ( '0' != edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) :
 
 		echo $item_info[ 'price' ];
-		edd_price( get_the_ID() ); 
+		edd_price( get_the_ID() );
 
 	else :
 
@@ -63,7 +63,7 @@ function quota_item_price_template() {
  */
 function quota_add_comments_support( $supports ) {
 	$supports[] = 'comments';
-	return $supports;	
+	return $supports;
 }
 add_filter( 'edd_download_supports', 'quota_add_comments_support' );
 
