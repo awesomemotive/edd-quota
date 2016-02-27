@@ -395,12 +395,18 @@ a.entry-title, .product-title, .entry-meta a, .comment-author a, .navigation-pos
 .image-content .entry-content { text-align: center; padding-bottom: 2em; }
 
 
-/* =Landing template
+/* =Page Templates
 ----------------------------------------------- */
 
-.landing .site-header, .landing .site-footer { text-align: center; }
-.landing .site-content { width: 640px; padding-top: 0; margin: 0 auto; }
+/* Landing */
+.quota-landing .site-header, .landing .site-footer { text-align: center; }
+.quota-landing .site-content { max-width: 640px; padding-top: 0; margin: 0 auto; }
 
+/* Full-width */
+.quota-full-width .site-content { padding-top: 0; margin: 0 auto; }
+
+/* Focus */
+.quota-focus .site-content { max-width: 640px; padding-top: 0; margin: 0 auto; }
 
 /* =Media
 ----------------------------------------------- */
@@ -480,7 +486,7 @@ cite.fn { font-style: normal; }
  * some styles are located in the edd_templates/edd.css overwrite file
 ----------------------------------------------- */
 
-#edd_checkout_form_wrap, .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { width: 640px; margin: 0 auto;}
+#edd_checkout_form_wrap, .quota-failed, .quota-purchase-confirmation, .quota-members { max-width: 640px; margin: 0 auto; }
 .store-description p { max-width: 700px; }
 .threecol { float: left; margin-right: 5%; width: 30%; min-height: 400px; }
 .threecol.last { margin-right: 0; }
@@ -590,7 +596,7 @@ input.edd-item-quantity { padding: 6px 6px 6px 1em; max-width: 60px; }
 }
 
 @media all and (max-width: 768px) {
-	.content, .sidebar, .image-content, .error-404-content, .landing .site-content, #edd_checkout_form_wrap, .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { float: none; margin: 0; width: 100%; }
+	.content, .sidebar, .image-content, .error-404-content, #edd_checkout_form_wrap { float: none; margin: 0; width: 100%; }
 	.site-header { text-align: center; }
 	#site-navigation.toggled-on .nav-menu, #site-navigation ul li > ul { display: block; }
 	.menu-toggle { display: inline-block; background: #f1f1f1; margin: 2em 0 1em; }
