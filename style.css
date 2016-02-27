@@ -1,10 +1,10 @@
 /*
 	Theme Name: Quota for Easy Digital Downloads
 	Theme URI: http://easydigitaldownloads.com
-	Author: Sean Davis
+	Author: EDD Team
 	Author URI: http://seandavis.co
 	Description: Quota is a simple, bold, elegant theme for use with Easy Digital Downloads.
-	Version: 1.2.6
+	Version: 1.2.7
 	License: GNU General Public License
 	License URI: license.txt
 	Tags:
@@ -175,7 +175,8 @@ textarea,
 #site-navigation ul ul a:hover,
 .sidebar .children li a,
 .footer-area a,
-.edd_price_option_name {
+.edd_price_option_name,
+.edd-variable-pricing-desc {
 	color: #666;
 }
 
@@ -194,7 +195,6 @@ a.product-title:hover,
 .page-numbers.current:hover,
 .sidebar .children li a:hover,
 .sidebar .sub-menu li a:hover,
-.edd-variable-pricing-desc,
 .widget_calendar table > tfoot td a:hover,
 .widget_edd_downloads_calendar table > tfoot td a:hover,
 .widget_recent_comments .recentcomments a:first-child:hover,
@@ -322,12 +322,13 @@ textarea { overflow: auto; padding: 10px 3px 3px 10px; border-width: 0 0 0 3px; 
 .site-title a { font-size: 36px; line-height: 48px; font-weight: bold; text-decoration: none; }
 
 /* menu */
-#site-navigation { position: absolute; top: 1.8em; right: 0; }
+#site-navigation { position: absolute; top: 2em; right: 0; }
 #site-navigation ul { list-style: none; margin: 0; padding-left: 0; }
 #site-navigation li { float: left; position: relative; }
+#site-navigation a { font-size: 13px; }
 #site-navigation a, .menu-toggle { display: block; font-weight: bold; text-decoration: none; padding: 1em; }
 .menu-toggle { padding: 10px; }
-#site-navigation ul ul { display: none; float: left; position: absolute; border: 3px solid rgba(0,0,0,.05); top: 3.5em; left: 0; z-index: 99999; }
+#site-navigation ul ul { display: none; float: left; position: absolute; border: 3px solid rgba(0,0,0,.05); top: 3.3em; left: 0; z-index: 99999; }
 #site-navigation ul li:hover > ul { display: block; }
 #site-navigation ul ul ul { left: 100%; top: -3px;}
 #site-navigation ul ul a { font-size: 13px; width: 200px; }
@@ -394,12 +395,18 @@ a.entry-title, .product-title, .entry-meta a, .comment-author a, .navigation-pos
 .image-content .entry-content { text-align: center; padding-bottom: 2em; }
 
 
-/* =Landing template
+/* =Page Templates
 ----------------------------------------------- */
 
-.landing .site-header, .landing .site-footer { text-align: center; }
-.landing .site-content { width: 640px; padding-top: 0; margin: 0 auto; }
+/* Landing */
+.quota-landing .site-header, .landing .site-footer { text-align: center; }
+.quota-landing .site-content { max-width: 640px; padding-top: 0; margin: 0 auto; }
 
+/* Full-width */
+.quota-full-width .site-content { margin: 0 auto; }
+
+/* Focus */
+.quota-focus .site-content { max-width: 640px; padding-top: 0; margin: 0 auto; }
 
 /* =Media
 ----------------------------------------------- */
@@ -479,7 +486,7 @@ cite.fn { font-style: normal; }
  * some styles are located in the edd_templates/edd.css overwrite file
 ----------------------------------------------- */
 
-#edd_checkout_form_wrap, .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { width: 640px; margin: 0 auto;}
+#edd_checkout_form_wrap, .quota-failed, .quota-purchase-confirmation, .quota-members { max-width: 640px; margin: 0 auto; }
 .store-description p { max-width: 700px; }
 .threecol { float: left; margin-right: 5%; width: 30%; min-height: 400px; }
 .threecol.last { margin-right: 0; }
@@ -496,20 +503,20 @@ cite.fn { font-style: normal; }
 
 /* page templates */
 .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { padding-top: 0; }
-#edd_user_history, #edd_purchase_receipt, #edd_purchase_receipt_products tbody td, .quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products, #edd_checkout_cart { border: 1px solid #f0f0f0; }
-.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products th{ background: #f5f5f5; }
+#edd_user_history, #edd_purchase_receipt, #edd_purchase_receipt_products tbody td, #edd_subscription_receipt tbody td, .quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, .quota-purchase-confirmation [id^="edd_"], #edd_checkout_cart { border: 1px solid #f0f0f0; }
+.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products th, #edd_subscription_receipt th {  background: #f5f5f5; }
 
 /* purchase-history */
 #edd_user_history { border-width: 1px 1px 0; margin-bottom: 3em; }
 
 /* purchase-confirmation */
-#edd_purchase_receipt { border-width: 1px; margin-bottom: 2em; }
-.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child { padding: 15px 10px; border-width: 0 1px 1px 0; }
-.quota-purchase-confirmation #edd_purchase_receipt thead th:last-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:last-child { padding: 15px 10px; border-width: 0 0 1px; }
-#edd_purchase_receipt_products { margin-bottom: 3em; }
-#edd_purchase_receipt_products th { font-weight: bold; padding: 15px 10px; }
-#edd_purchase_receipt_products tbody td { border-width: 0 0 1px; }
-#edd_purchase_receipt_products td { padding: 15px 10px; }
+.quota-purchase-confirmation [id^="edd_"] { border-width: 1px; margin-bottom: 2em; }
+.quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] thead th:first-child, .quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] tbody td:first-child { padding: 15px 10px; border-width: 0 1px 1px 0; }
+.quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] thead th:last-child, .quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] tbody td:last-child { padding: 15px 10px; border-width: 0 0 1px; }
+.quota-purchase-confirmation [id^="edd_"] { margin-bottom: 3em; }
+.quota-purchase-confirmation [id^="edd_"] th { font-weight: bold; padding: 15px 10px; }
+.quota-purchase-confirmation [id^="edd_"] tbody td { border-width: 0 0 1px; }
+.quota-purchase-confirmation [id^="edd_"] td { padding: 15px 10px; }
 
 /* checkout */
 #edd_checkout_cart { border-width: 1px 1px 0; }
@@ -526,10 +533,11 @@ cite.fn { font-style: normal; }
 /* EDD Variable Pricing Descriptions - http://wordpress.org/plugins/edd-variable-pricing-descriptions/ */
 /* EDD Featured Downloads - http://wordpress.org/plugins/edd-featured-downloads/ */
 /* EDD Coming Soon - http://wordpress.org/plugins/edd-coming-soon/ */
-/* EDD Reviews - https://easydigitaldownloads.com/extensions/product-reviews/ */
-/* EDD Related Downloads - https://easydigitaldownloads.com/extensions/related-downloads/ */
+/* EDD Reviews - https://easydigitaldownloads.com/downloads/product-reviews/ */
+/* EDD Related Downloads - https://easydigitaldownloads.com/downloads/related-downloads/ */
+/* EDD Software Licensing - https://easydigitaldownloads.com/downloads/software-licensing/ */
+/* EDD Recurring Payments - https://easydigitaldownloads.com/downloads/recurring-payments/ */
 
-.edd-variable-pricing-desc { font-size: 13px; line-height: 16px; margin: 0;}
 .featured-download-container { margin: 4em auto 0; }
 .featured-downloads-intro { margin: 1.5em 0 0;}
 .featured-downloads-title { text-decoration: none; font-size: 24px; line-height: 34px; font-weight: bold; }
@@ -560,6 +568,16 @@ cite.fn { font-style: normal; }
 .edd_download_quantity_wrapper { margin-bottom: 10px; }
 .edd_multi_mode input.edd-item-quantity { margin-left: 3px; }
 input.edd-item-quantity { padding: 6px 6px 6px 1em; max-width: 60px; }
+#edd_checkout_form_wrap fieldset#edd_sl_renewal_fields { background: none; padding: 0; }
+#edd_checkout_form_wrap #edd-license-key-container-wrap { padding: 0; }
+#edd_checkout_form_wrap input.edd-input { margin-bottom: 0; }
+.edd-variable-pricing-desc { font-size: 13px; line-height: 16px; margin: 10px 0 0;}
+.eddr-notice { color: #999; font-size: 13px; text-align: left; }
+.eddr-notice:first-of-type { margin-top: 20px; }
+.edd-variable-pricing-desc:not(:empty) ~ .eddr-notice {	margin-top: 0; }
+.eddr-notice:only-of-type { border-radius: 4px;	margin-top: 10px; }
+.eddr-notice:not(:only-of-type):first-of-type { margin-top: 10px; }
+.edd_price_options[class^="edd_"] .eddr-notice:first-of-type, .edd_price_options[class^="edd_"] .edd-variable-pricing-desc:not(:empty) + .eddr-notice { padding-top: 6px; margin-top: 6px; }
 
 
 
@@ -589,7 +607,7 @@ input.edd-item-quantity { padding: 6px 6px 6px 1em; max-width: 60px; }
 }
 
 @media all and (max-width: 768px) {
-	.content, .sidebar, .image-content, .error-404-content, .landing .site-content, #edd_checkout_form_wrap, .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { float: none; margin: 0; width: 100%; }
+	.content, .sidebar, .image-content, .error-404-content, #edd_checkout_form_wrap { float: none; margin: 0; width: 100%; }
 	.site-header { text-align: center; }
 	#site-navigation.toggled-on .nav-menu, #site-navigation ul li > ul { display: block; }
 	.menu-toggle { display: inline-block; background: #f1f1f1; margin: 2em 0 1em; }

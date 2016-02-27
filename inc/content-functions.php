@@ -100,8 +100,16 @@ function quota_body_classes( $classes ) {
 		$classes[] = 'store-front';
 	elseif ( is_page_template( 'landing.php' ) ) :
 
-		// add .landing body class to pages that use the Landing template
-		$classes[] = 'landing';
+		// add .quota-landing (and .landing for back-compat) body class to pages that use the Landing Page template
+		$classes[] = 'quota-landing landing';
+	elseif ( is_page_template( 'full-width.php' ) ) :
+
+		// add .quota-full-width body class to pages that use the Full-width Page template
+		$classes[] = 'quota-full-width';
+	elseif ( is_page_template( 'focus.php' ) ) :
+
+		// add .quota-focus body class to pages that use the Focus Page template
+		$classes[] = 'quota-focus';
 	endif;
 
 	if ( is_multi_author() )
@@ -158,7 +166,7 @@ function quota_password_form() {
     ' . __( 'To view this protected post, enter the password below:', 'quota' ) . '</p>
     <input name="post_password" class="post-password" id="' . $label . '" type="password" size="20" placeholder="' . esc_attr__( 'Enter Password', 'quota' ) . '" /><input type="submit" name="Submit" value="' . esc_attr__( 'Submit' ) . '" />
     </form>';
-    
+
     return $o;
 }
 add_filter( 'the_password_form', 'quota_password_form' );
@@ -171,43 +179,43 @@ if ( ! function_exists( 'quota_content_nav' ) ) :
 
 	function quota_content_nav( $nav_id ) {
 		global $wp_query, $post;
-	
+
 		// Don't print empty markup on single pages if there's nowhere to navigate.
 		if ( is_single() ) {
 			$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
 			$next = get_adjacent_post( false, '', false );
-	
+
 			if ( ! $next && ! $previous )
 				return;
 		}
-	
+
 		// Don't print empty markup in archives if there's only one page.
 		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
 			return;
-	
+
 		$nav_class = ( is_single() ) ? 'navigation-post' : 'navigation-paging';
-	
+
 		?>
 		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'quota' ); ?></h1>
-	
+
 		<?php if ( is_single() ) : // navigation links for single posts ?>
-	
+
 			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav"><i class="fa fa-arrow-circle-left button-icon"></i>' . _x( '%title', 'Previous post link', 'quota' ) . '</span>' ); ?>
 			<?php next_post_link( '<div class="nav-next">%link</div>', '<span class="meta-nav">' . _x( '%title', 'Next post link', 'quota' ) . '<i class="fa fa-arrow-circle-right button-icon"></i></span>' ); ?>
-	
+
 		<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
-	
+
 			<?php if ( get_next_posts_link() ) : ?>
 			<div class="nav-previous"><?php next_posts_link( '<span class="meta-nav"><i class="fa fa-arrow-circle-left button-icon"></i></span> ' . __( 'Older posts', 'quota' ) ); ?></div>
 			<?php endif; ?>
-	
+
 			<?php if ( get_previous_posts_link() ) : ?>
 			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'quota' ) . ' <span class="meta-nav"><i class="fa fa-arrow-circle-right button-icon"></i></span>' ); ?></div>
 			<?php endif; ?>
-	
+
 		<?php endif; ?>
-	
+
 		</nav>
 		<?php
 	}
@@ -223,7 +231,7 @@ if ( ! function_exists( 'quota_the_attached_image' ) ) :
 		$post                = get_post();
 		$attachment_size     = apply_filters( 'quota_attachment_size', array( 1200, 1200 ) );
 		$next_attachment_url = wp_get_attachment_url();
-	
+
 		/**
 		 * Grab the IDs of all the image attachments in a gallery so we can get the URL
 		 * of the next adjacent image in a gallery, or the first image (if we're
@@ -238,7 +246,7 @@ if ( ! function_exists( 'quota_the_attached_image' ) ) :
 			'order'          => 'ASC',
 			'orderby'        => 'menu_order ID'
 		) ) );
-	
+
 		// If there is more than 1 attachment in a gallery...
 		if ( count( $attachments ) > 1 ) {
 			foreach ( $attachments as $k => $attachment ) {
@@ -246,16 +254,16 @@ if ( ! function_exists( 'quota_the_attached_image' ) ) :
 					break;
 			}
 			$k++;
-	
+
 			// get the URL of the next image attachment...
 			if ( isset( $attachments[ $k ] ) )
 				$next_attachment_url = get_attachment_link( $attachments[ $k ]->ID );
-	
+
 			// or get the URL of the first image attachment.
 			else
 				$next_attachment_url = get_attachment_link( $attachments[0]->ID );
 		}
-	
+
 		printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
 			esc_url( $next_attachment_url ),
 			the_title_attribute( array( 'echo' => false ) ),
@@ -274,14 +282,14 @@ if ( ! function_exists( 'quota_posted_on' ) ) :
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
 			$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
-	
+
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
-	
+
 		printf( __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark">%3$s</a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s" rel="author">%6$s</a></span></span>', 'quota' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
