@@ -175,7 +175,8 @@ textarea,
 #site-navigation ul ul a:hover,
 .sidebar .children li a,
 .footer-area a,
-.edd_price_option_name {
+.edd_price_option_name,
+.edd-variable-pricing-desc {
 	color: #666;
 }
 
@@ -194,7 +195,6 @@ a.product-title:hover,
 .page-numbers.current:hover,
 .sidebar .children li a:hover,
 .sidebar .sub-menu li a:hover,
-.edd-variable-pricing-desc,
 .widget_calendar table > tfoot td a:hover,
 .widget_edd_downloads_calendar table > tfoot td a:hover,
 .widget_recent_comments .recentcomments a:first-child:hover,
@@ -403,7 +403,7 @@ a.entry-title, .product-title, .entry-meta a, .comment-author a, .navigation-pos
 .quota-landing .site-content { max-width: 640px; padding-top: 0; margin: 0 auto; }
 
 /* Full-width */
-.quota-full-width .site-content { padding-top: 0; margin: 0 auto; }
+.quota-full-width .site-content { margin: 0 auto; }
 
 /* Focus */
 .quota-focus .site-content { max-width: 640px; padding-top: 0; margin: 0 auto; }
@@ -503,20 +503,20 @@ cite.fn { font-style: normal; }
 
 /* page templates */
 .quota-failed, .quota-purchase-history, .quota-purchase-confirmation, .quota-members { padding-top: 0; }
-#edd_user_history, #edd_purchase_receipt, #edd_purchase_receipt_products tbody td, .quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products, #edd_checkout_cart { border: 1px solid #f0f0f0; }
-.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products th{ background: #f5f5f5; }
+#edd_user_history, #edd_purchase_receipt, #edd_purchase_receipt_products tbody td, #edd_subscription_receipt tbody td, .quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, .quota-purchase-confirmation [id^="edd_"], #edd_checkout_cart { border: 1px solid #f0f0f0; }
+.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child, #edd_purchase_receipt_products th, #edd_subscription_receipt th {  background: #f5f5f5; }
 
 /* purchase-history */
 #edd_user_history { border-width: 1px 1px 0; margin-bottom: 3em; }
 
 /* purchase-confirmation */
-#edd_purchase_receipt { border-width: 1px; margin-bottom: 2em; }
-.quota-purchase-confirmation #edd_purchase_receipt thead th:first-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:first-child { padding: 15px 10px; border-width: 0 1px 1px 0; }
-.quota-purchase-confirmation #edd_purchase_receipt thead th:last-child, .quota-purchase-confirmation #edd_purchase_receipt tbody td:last-child { padding: 15px 10px; border-width: 0 0 1px; }
-#edd_purchase_receipt_products { margin-bottom: 3em; }
-#edd_purchase_receipt_products th { font-weight: bold; padding: 15px 10px; }
-#edd_purchase_receipt_products tbody td { border-width: 0 0 1px; }
-#edd_purchase_receipt_products td { padding: 15px 10px; }
+.quota-purchase-confirmation [id^="edd_"] { border-width: 1px; margin-bottom: 2em; }
+.quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] thead th:first-child, .quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] tbody td:first-child { padding: 15px 10px; border-width: 0 1px 1px 0; }
+.quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] thead th:last-child, .quota-purchase-confirmation .quota-purchase-confirmation [id^="edd_"] tbody td:last-child { padding: 15px 10px; border-width: 0 0 1px; }
+.quota-purchase-confirmation [id^="edd_"] { margin-bottom: 3em; }
+.quota-purchase-confirmation [id^="edd_"] th { font-weight: bold; padding: 15px 10px; }
+.quota-purchase-confirmation [id^="edd_"] tbody td { border-width: 0 0 1px; }
+.quota-purchase-confirmation [id^="edd_"] td { padding: 15px 10px; }
 
 /* checkout */
 #edd_checkout_cart { border-width: 1px 1px 0; }
@@ -536,8 +536,8 @@ cite.fn { font-style: normal; }
 /* EDD Reviews - https://easydigitaldownloads.com/downloads/product-reviews/ */
 /* EDD Related Downloads - https://easydigitaldownloads.com/downloads/related-downloads/ */
 /* EDD Software Licensing - https://easydigitaldownloads.com/downloads/software-licensing/ */
+/* EDD Recurring Payments - https://easydigitaldownloads.com/downloads/recurring-payments/ */
 
-.edd-variable-pricing-desc { font-size: 13px; line-height: 16px; margin: 0;}
 .featured-download-container { margin: 4em auto 0; }
 .featured-downloads-intro { margin: 1.5em 0 0;}
 .featured-downloads-title { text-decoration: none; font-size: 24px; line-height: 34px; font-weight: bold; }
@@ -571,6 +571,13 @@ input.edd-item-quantity { padding: 6px 6px 6px 1em; max-width: 60px; }
 #edd_checkout_form_wrap fieldset#edd_sl_renewal_fields { background: none; padding: 0; }
 #edd_checkout_form_wrap #edd-license-key-container-wrap { padding: 0; }
 #edd_checkout_form_wrap input.edd-input { margin-bottom: 0; }
+.edd-variable-pricing-desc { font-size: 13px; line-height: 16px; margin: 10px 0 0;}
+.eddr-notice { color: #999; font-size: 13px; text-align: left; }
+.eddr-notice:first-of-type { margin-top: 20px; }
+.edd-variable-pricing-desc:not(:empty) ~ .eddr-notice {	margin-top: 0; }
+.eddr-notice:only-of-type { border-radius: 4px;	margin-top: 10px; }
+.eddr-notice:not(:only-of-type):first-of-type { margin-top: 10px; }
+.edd_price_options[class^="edd_"] .eddr-notice:first-of-type, .edd_price_options[class^="edd_"] .edd-variable-pricing-desc:not(:empty) + .eddr-notice { padding-top: 6px; margin-top: 6px; }
 
 
 
