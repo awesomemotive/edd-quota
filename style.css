@@ -533,8 +533,9 @@ cite.fn { font-style: normal; }
 /* EDD Variable Pricing Descriptions - http://wordpress.org/plugins/edd-variable-pricing-descriptions/ */
 /* EDD Featured Downloads - http://wordpress.org/plugins/edd-featured-downloads/ */
 /* EDD Coming Soon - http://wordpress.org/plugins/edd-coming-soon/ */
-/* EDD Reviews - https://easydigitaldownloads.com/extensions/product-reviews/ */
-/* EDD Related Downloads - https://easydigitaldownloads.com/extensions/related-downloads/ */
+/* EDD Reviews - https://easydigitaldownloads.com/downloads/product-reviews/ */
+/* EDD Related Downloads - https://easydigitaldownloads.com/downloads/related-downloads/ */
+/* EDD Software Licensing - https://easydigitaldownloads.com/downloads/software-licensing/ */
 
 .edd-variable-pricing-desc { font-size: 13px; line-height: 16px; margin: 0;}
 .featured-download-container { margin: 4em auto 0; }
@@ -567,6 +568,9 @@ cite.fn { font-style: normal; }
 .edd_download_quantity_wrapper { margin-bottom: 10px; }
 .edd_multi_mode input.edd-item-quantity { margin-left: 3px; }
 input.edd-item-quantity { padding: 6px 6px 6px 1em; max-width: 60px; }
+#edd_checkout_form_wrap fieldset#edd_sl_renewal_fields { background: none; padding: 0; }
+#edd_checkout_form_wrap #edd-license-key-container-wrap { padding: 0; }
+#edd_checkout_form_wrap input.edd-input { margin-bottom: 0; }
 
 
 
