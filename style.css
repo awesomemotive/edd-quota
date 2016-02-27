@@ -322,12 +322,13 @@ textarea { overflow: auto; padding: 10px 3px 3px 10px; border-width: 0 0 0 3px; 
 .site-title a { font-size: 36px; line-height: 48px; font-weight: bold; text-decoration: none; }
 
 /* menu */
-#site-navigation { position: absolute; top: 1.8em; right: 0; }
+#site-navigation { position: absolute; top: 2em; right: 0; }
 #site-navigation ul { list-style: none; margin: 0; padding-left: 0; }
 #site-navigation li { float: left; position: relative; }
+#site-navigation a { font-size: 13px; }
 #site-navigation a, .menu-toggle { display: block; font-weight: bold; text-decoration: none; padding: 1em; }
 .menu-toggle { padding: 10px; }
-#site-navigation ul ul { display: none; float: left; position: absolute; border: 3px solid rgba(0,0,0,.05); top: 3.5em; left: 0; z-index: 99999; }
+#site-navigation ul ul { display: none; float: left; position: absolute; border: 3px solid rgba(0,0,0,.05); top: 3.3em; left: 0; z-index: 99999; }
 #site-navigation ul li:hover > ul { display: block; }
 #site-navigation ul ul ul { left: 100%; top: -3px;}
 #site-navigation ul ul a { font-size: 13px; width: 200px; }
